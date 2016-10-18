@@ -2,9 +2,6 @@
 <html>
 <head>
 	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Quản lý hoạt động đoàn</title>
 
     <!-- Bootstrap -->
@@ -24,10 +21,10 @@
 		  </ol>
 		  <div class="carousel-inner" role="listbox">
 		    <div class="item active">
-		      <img src="images/logo_doanthanhnien.jpg" alt="Chania"  width="500px" height="150px">
+		      <img src="images/logo_doanthanhnien.jpg" alt="ThanhNien1" width="273" height="345">
 		    </div>
 		    <div class="item">
-		      <img src="images/logo_doanthanhnien2.jpg" alt="Flower" width="500px" height="150px">
+		      <img src="images/logo_doanthanhnien2.jpg" alt="ThanhNien2" width="260" height="345">
 		    </div>
 		  </div>
 		  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -89,46 +86,46 @@
 			 	</div>
 			 	<div id="themhoatdong" class="tab-pane fade">
 			 		<div class="col-md-4">
-				 		<form>
-						  	<div class="form-group">
-						  		<label>STT:</label>
-						  		<input type="text" class="form-control" id="STT" placeholder="Enter STT">
+				 		<form method="post" id="contactform" action="" role="form">
+						  	<div class="form-group has-feedback">
+						  		<label for="contactactstt">STT:</label>
+						  		<input type="text" class="form-control" id="contactactstt" placeholder="Enter STT">
 						  	</div>
 						  	<div class="form-group">
-						  		<label>Tên hoạt động:</label>
-						  		<input type="text" class="form-control" id="namehd" placeholder="Enter Active">
+						  		<label for="contacttenhoatdong">Tên hoạt động:</label>
+						  		<input type="text" class="form-control" id="contacttenhoatdong" placeholder="Enter Active">
 						  	</div>
 						  	<div class="form-group">
-						  		<label>Đơn vị tổ chức:</label>
-						  		<input type="text" class="form-control" id="donvitochuc" placeholder="Enter Dept">
+						  		<label for="contactdonvitochuc">Đơn vị tổ chức:</label>
+						  		<input type="text" class="form-control" id="contactdonvitochuc" placeholder="Enter Dept">
 						  	</div>
 						  	<div class="form-group">
-								<label>Ngày bắt đầu:</label>
-				 				<input type="date" class="form-control" id="ngaybatdau" placeholder="Enter Date">
+								<label for="contactngaybatdau">Ngày bắt đầu:</label>
+				 				<input type="date" class="form-control" id="contactngaybatdau" placeholder="Enter Date">
 						  	</div>
 						  	<div class="form-group">
-								<label>Ngày kết thúc:</label>
-				 				<input type="date" class="form-control" id="ngayketthuc" placeholder="Enter Date">
+								<label for="contactngayketthuc">Ngày kết thúc:</label>
+				 				<input type="date" class="form-control" id="contactngayketthuc" placeholder="Enter Date">
 						  	</div>
 						 </form>
 					</div>
 					<div class="col-md-4">
-						<form>
+						<form method="post" id="contactform" action="" role="form">
 						  	<div class="form-group">
-						  		<label>Số lượng:</label>
-						  		<input type="text" class="form-control" id="soluong" placeholder="Enter Number">
+						  		<label for="contactsoluong">Số lượng:</label>
+						  		<input type="text" class="form-control" id="contactsoluong" placeholder="Enter Number">
 						  	</div>
 						  	<div class="form-group">
-						  		<label>Điểm rèn luyện:</label>
-						  		<input type="text" class="form-control" id="namehd" placeholder="Enter Number">
+						  		<label for="contactdiemrl">Điểm rèn luyện:</label>
+						  		<input type="text" class="form-control" id="contactdiemrl" placeholder="Enter Number">
 						  	</div>
 						  	<div class="form-group">
-						  		<label>Điểm CTXH:</label>
-						  		<input type="text" class="form-control" id="namehd" placeholder="Enter Number">
+						  		<label for="contactdiemctxh">Điểm CTXH:</label>
+						  		<input type="text" class="form-control" id="contactdiemctxh" placeholder="Enter Number">
 						  	</div>
 						  	<div class="form-group">
-						  		<label>Nội dung:</label>
-				 				<textarea rows="5" cols="50" name="description" class="form-control" placeholder="Enter Content"></textarea>
+						  		<label for="contactnoidung">Nội dung:</label>
+				 				<textarea rows="5" cols="50" name="contactnoidung" class="form-control" placeholder="Enter Content"></textarea>
 						  	</div>
 					  	</form>
 					  	<button class="btn btn-info" type="button" id="btnShowModal_themhd">Thêm hoạt động</button>
@@ -169,51 +166,49 @@
 			 	</div>
 			 	<div id="suahoatdong" class="tab-pane fade in active">
 			 		<div class="col-md-4">
-				 		<form>
-						  	<div class="form-group">
-						  		<label>STT:</label>
-						  		<input type="text" class="form-control" id="STT" placeholder="Enter STT">
+				 		<form method="post" id="contactform" action="" role="form">
+						  	<div class="form-group has-feedback">
+						  		<label for="contactactstt">STT:</label>
+						  		<input type="text" class="form-control" id="contactactstt" placeholder="Enter STT">
 						  	</div>
 						  	<div class="form-group">
-						  		<label>Tên hoạt động:</label>
-						  		<input type="text" class="form-control" id="namehd" placeholder="Enter Active">
+						  		<label for="contacttenhoatdong">Tên hoạt động:</label>
+						  		<input type="text" class="form-control" id="contacttenhoatdong" placeholder="Enter Active">
 						  	</div>
 						  	<div class="form-group">
-						  		<label>Đơn vị tổ chức:</label>
-						  		<input type="text" class="form-control" id="donvitochuc" placeholder="Enter Dept">
+						  		<label for="contactdonvitochuc">Đơn vị tổ chức:</label>
+						  		<input type="text" class="form-control" id="contactdonvitochuc" placeholder="Enter Dept">
 						  	</div>
 						  	<div class="form-group">
-								<label>Ngày bắt đầu:</label>
-				 				<input type="date" class="form-control" id="ngaybatdau" placeholder="Enter Date">
+								<label for="contactngaybatdau">Ngày bắt đầu:</label>
+				 				<input type="date" class="form-control" id="contactngaybatdau" placeholder="Enter Date">
 						  	</div>
 						  	<div class="form-group">
-								<label>Ngày kết thúc:</label>
-				 				<input type="date" class="form-control" id="ngayketthuc" placeholder="Enter Date">
+								<label for="contactngayketthuc">Ngày kết thúc:</label>
+				 				<input type="date" class="form-control" id="contactngayketthuc" placeholder="Enter Date">
 						  	</div>
 						 </form>
 					</div>
 					<div class="col-md-4">
-						<form>
+						<form method="post" id="contactform" action="" role="form">
 						  	<div class="form-group">
-						  		<label>Số lượng:</label>
-						  		<input type="text" class="form-control" id="soluong" placeholder="Enter Number">
+						  		<label for="contactsoluong">Số lượng:</label>
+						  		<input type="text" class="form-control" id="contactsoluong" placeholder="Enter Number">
 						  	</div>
 						  	<div class="form-group">
-						  		<label>Điểm rèn luyện:</label>
-						  		<input type="text" class="form-control" id="namehd" placeholder="Enter Number">
+						  		<label for="contactdiemrl">Điểm rèn luyện:</label>
+						  		<input type="text" class="form-control" id="contactdiemrl" placeholder="Enter Number">
 						  	</div>
 						  	<div class="form-group">
-						  		<label>Điểm CTXH:</label>
-						  		<input type="text" class="form-control" id="namehd" placeholder="Enter Number">
+						  		<label for="contactdiemctxh">Điểm CTXH:</label>
+						  		<input type="text" class="form-control" id="contactdiemctxh" placeholder="Enter Number">
 						  	</div>
 						  	<div class="form-group">
-						  		<label>Nội dung:</label>
-				 				<textarea rows="5" cols="50" name="description" class="form-control" placeholder="Enter Content"></textarea>
+						  		<label for="contactnoidung">Nội dung:</label>
+				 				<textarea rows="5" cols="50" name="contactnoidung" class="form-control" placeholder="Enter Content"></textarea>
 						  	</div>
+						  	<button class="btn btn-info" type="submit" id="contactbtn">Sửa hoạt động</button>
 					  	</form>
-					<div class="btnsuatb">
-						<button class="btn btn-info" type="button" id="btnShowModal_suahd">Sửa hoạt động</button>
-					</div>
 			 	</div>
 			 	
 			</div>
@@ -221,35 +216,62 @@
 	</div>
 	</div>
 	<script type="text/javascript">
-	$(document).ready(function(){
-		$('#btnShowModal_xoahd').click(function(){
-			$('#btnShowModal_xoahd').modal('show');
-		});
-		$('#btnShowModal_xoahd').on('show.bs.modal',function(){
-			alert('Xóa hoạt động thành công');
-		});
-		$('#btnShowModal_xoahd').click(function(){
-			$('#btnShowModal_xoahd').modal('hide');
-		});
-		$('#btnShowModal_suahd').click(function(){
-			$('#btnShowModal_suahd').modal('show');
-		});
-		$('#btnShowModal_suahd').on('show.bs.modal',function(){
-			alert('Sửa hoạt động thành công');
-		});
-		$('#btnShowModal_suahd').click(function(){
-			$('#btnShowModal_suahd').modal('hide');
-		});
-		$('#btnShowModal_themhd').click(function(){
-			$('#btnShowModal_themhd').modal('show');
-		});
-		$('#btnShowModal_themhd').on('show.bs.modal',function(){
-			alert('Thêm hoạt động thành công');
-		});
-		$('#btnShowModal_themhd').click(function(){
-			$('#btnShowModal_themhd').modal('hide');
-		});
-	});
+		function validateText(id)
+		{
+			if($("#"+id).val()==null || $("#"+id).val)()="")
+			{
+				var div=$("#"+id).closest("div");
+				div.removeClass("has-error");
+				$("#glypcn"+id).remove();
+				div.addClass("has-error has-feedback");
+				div.append('<span id="glypcn'+id+'" class=glyphicon glyphicon-remove form-control-feedback"></span>');
+				return false;
+			}
+			else
+			{
+				var div=$("#"+id).closest("div");
+				div.removeClass("has-error");
+				div.addClass("has-succes has-feedback");
+				$("#glypcn"+id).remove();
+				div.append('<span id="glypcn'+id+'" class=glyphicon glyphicon-ok form-control-feedback"></span>');
+				return true;
+			}
+		}
+		$(document).ready(
+			function(){
+				$("#contactbtn").click(function(){
+					if(!validateText("contactactstt")){
+						return false;
+					}
+					if(!validateText("contacttenhoatdong")){
+						return false;
+					}
+					if(!validateText("contactdonvitochuc")){
+						return false;
+					}
+					if(!validateText("contactngaybatdau")){
+						return false;
+					}
+					if(!validateText("contactngayketthuc")){
+						return false;
+					}
+					if(!validateText("contactsoluong")){
+						return false;
+					}
+					if(!validateText("contactdiemrl")){
+						return false;
+					}
+					if(!validateText("contactdiemctxh")){
+						return false;
+					}
+					if(!validateText("contactnoidung")){
+						return false;
+					}
+					$(form#contactform).submit();
+				});
+				
+			}
+		);
 	</script>
 </body>
 </html>
