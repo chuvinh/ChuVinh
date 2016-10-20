@@ -42,11 +42,15 @@
 		    <span class="sr-only">Next</span>
 		  </a>
 		</div>
-		<ul class="nav nav-pills nav-justified">
-		  <li class="active"><a href="admin_qltaikhoan.jsp">Quản lý tài khoản</a></li>
-		  <li class="active"><a href="admin_qlnguoidung.jsp">Quản lý người dùng</a></li>
-		  <li class="active"><a href="trangchu.jsp">Đăng xuất</a></li>
-		</ul>
+		<nav class="navbar navbar-inverse">
+		    <div class="container-fluid">
+		        <ul class="nav navbar-nav">
+		          	<li class="active"><a href="admin_qltaikhoan.jsp">Quản lý tài khoản</a></li>
+			  		<li><a href="admin_qlnguoidung.jsp">Quản lý người dùng</a></li>
+			  		<li><a href="trangchu.jsp">Đăng xuất</a></li>
+		        </ul>
+		    </div>
+    	</nav>
 	</div>
 	<div class="navbar navbar-default navbar-fixed-bottom">
 			<p class="navbar-text navbar-center">Đoàn trường Đại học Sư Phạm Kỹ Thuật TP Hồ Chí Minh</p>

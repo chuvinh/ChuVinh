@@ -39,13 +39,6 @@
 		    <span class="sr-only">Next</span>
 		  </a>
 		</div>
-		<div class="menu_tab">
-			<ul class="nav nav-pills nav-justified">
-			  <li class="active"><a href="trangchu.jsp">Trang chủ</a></li>
-			  <li class="active"><a href="trangchu.jsp">Thông báo</a></li>
-			  <li class="active"><a href="trangchu.jsp">Tư vấn hỗ trợ</a></li>
-			</ul>
-		</div>
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">

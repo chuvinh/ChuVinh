@@ -42,17 +42,19 @@
 		    <span class="sr-only">Next</span>
 		  </a>
 		</div>
-		<div class="menu_tab">
-			<ul class="nav nav-pills nav-justified">
-			  <li class="active"><a href="doanvien_login.jsp">Trang chủ</a></li>
-			  <li class="active"><a href="doanvien_xemthongbao.jsp">Thông báo</a></li>
-			  <li class="active"><a href="doanvien_hoatdong.jsp">Hoạt động</a></li>
-			  <li class="active"><a href="doanvien_tracuu.jsp">Tra cứu</a></li>
-			  <li class="active"><a href="doanvien_tinnhan.jsp">Tin nhắn</a></li>
-			  <li class="active"><a href="doanvien_xemdiem.jsp">Xem điểm</a></li>
-			  <li class="active"><a href="trangchu.jsp">Đăng xuất</a></li>
-			</ul>
-		</div>
+		<nav class="navbar navbar-inverse">
+		    <div class="container-fluid">
+		        <ul class="nav navbar-nav">
+		          <li class="active"><a href="doanvien_login.jsp">Trang chủ</a></li>
+				  <li><a href="doanvien_xemthongbao.jsp">Thông báo</a></li>
+				  <li><a href="doanvien_hoatdong.jsp">Hoạt động</a></li>
+				  <li><a href="doanvien_tracuu.jsp">Tra cứu</a></li>
+				  <li><a href="doanvien_tinnhan.jsp">Tin nhắn</a></li>
+				  <li><a href="doanvien_xemdiem.jsp">Xem điểm</a></li>
+				  <li><a href="trangchu.jsp">Đăng xuất</a></li>
+		        </ul>
+		    </div>
+    	</nav>
 		<div class="menu_tab_content">
 			<ul class="nav nav-tabs">
 			  <li class="active"><a data-toggle="tab" href="#dshoatdong">Danh sách hoạt động</a></li>
