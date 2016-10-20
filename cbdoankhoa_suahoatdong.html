@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>Quản lý hoạt động đoàn</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/cbdoankhoa_thongbao.css" rel="stylesheet">
+    <script src="jquery/jquery.min.js"></script>
+  	<script src="bootstrap/js/bootstrap.min.js"></script>	
+</head>
+<body>
+	<div class="containt">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		  <ol class="carousel-indicators">
+		    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		    <li data-target="#myCarousel" data-slide-to="1"></li>
+		    <li data-target="#myCarousel" data-slide-to="2"></li>
+		    <li data-target="#myCarousel" data-slide-to="3"></li>
+		  </ol>
+		  <div class="carousel-inner" role="listbox">
+		    <div class="item active">
+		      <img src="images/logo_doanthanhnien.jpg" alt="ThanhNien1" width="273" height="345">
+		    </div>
+		    <div class="item">
+		      <img src="images/logo_doanthanhnien2.jpg" alt="ThanhNien2" width="260" height="345">
+		    </div>
+		  </div>
+		  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+		    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		    <span class="sr-only">Previous</span>
+		  </a>
+		  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+		    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		    <span class="sr-only">Next</span>
+		  </a>
+		</div>
+		<div class="menu_tab">
+			<ul class="nav nav-pills nav-justified">
+				<li class="active"><a href="trangchu.html">Trang chủ</a></li>
+				<li class="active"><a href="cbdoankhoa_thongbao.html">Thông báo</a></li>
+				<li class="active"><a href="cbdoankhoa_hoatdong.html">Hoạt động</a></li>
+			 	<li class="active"><a href="cbdoankhoa_tracuu.html">Tra cứu</a></li>
+				<li class="active"><a href="cbdoankhoa_tinnhan.html">Tin nhắn</a></li>
+				<li class="active"><a href="login.html">Đăng xuất</a></li>
+			</ul>
+		</div>
+		<div class="menu_tab_content">
+			<ul class="nav nav-tabs">
+			 	<li><a data-toggle="tab" href="#dshoatdong">Danh sách hoạt động</a></li>
+			 	<li><a data-toggle="tab" href="#themhoatdong">Thêm hoạt động</a></li>
+			 	<li><a data-toggle="tab" href="#xoahoatdong">Xóa hoạt động</a></li>
+			 	<li class="active"><a data-toggle="tab" href="#suahoatdong">Sửa hoạt động</a></li>
+			</ul>
+			<div class="tab-content">
+			 	<div id="dshoatdong" class="tab-pane fade">
+					<div class="col-md-12">
+						<table class="table">
+							<tr>
+								<th></th>
+								<th>STT</th>
+								<th>Tên hoạt động</th>
+								<th>Đơn vị tổ chức</th>
+								<th>Ngày bắt đầu</th>
+								<th>Ngày kết thúc</th>
+								<th>Số lượng</th>
+								<th>Điểm rèn luyện</th>
+								<th>Điểm CTXH</th>
+								<th>Nội dung</th>
+							</tr>
+							<tr>
+								<td><input type="checkbox"></td>
+								<td>1</td>
+								<td>Vệ sinh trường</td>
+								<td>ĐHSPK</td>
+								<td>20/10/2016</td>
+								<td>25/10/2016</td>
+								<td>60</td>
+								<td>5</td>
+								<td>10</td>
+								<td></td>
+							</tr>
+						 </table>
+					</div>
+			 	</div>
+			 	<div id="themhoatdong" class="tab-pane fade">
+			 		<div class="col-md-4">
+				 		<form method="post" id="contactform" action="" role="form">
+						  	<div class="form-group has-feedback">
+						  		<label for="contactactstt">STT:</label>
+						  		<input type="text" class="form-control" id="contactactstt" placeholder="Enter STT">
+						  	</div>
+						  	<div class="form-group">
+						  		<label for="contacttenhoatdong">Tên hoạt động:</label>
+						  		<input type="text" class="form-control" id="contacttenhoatdong" placeholder="Enter Active">
+						  	</div>
+						  	<div class="form-group">
+						  		<label for="contactdonvitochuc">Đơn vị tổ chức:</label>
+						  		<input type="text" class="form-control" id="contactdonvitochuc" placeholder="Enter Dept">
+						  	</div>
+						  	<div class="form-group">
+								<label for="contactngaybatdau">Ngày bắt đầu:</label>
+				 				<input type="date" class="form-control" id="contactngaybatdau" placeholder="Enter Date">
+						  	</div>
+						  	<div class="form-group">
+								<label for="contactngayketthuc">Ngày kết thúc:</label>
+				 				<input type="date" class="form-control" id="contactngayketthuc" placeholder="Enter Date">
+						  	</div>
+						 </form>
+					</div>
+					<div class="col-md-4">
+						<form method="post" id="contactform" action="" role="form">
+						  	<div class="form-group">
+						  		<label for="contactsoluong">Số lượng:</label>
+						  		<input type="text" class="form-control" id="contactsoluong" placeholder="Enter Number">
+						  	</div>
+						  	<div class="form-group">
+						  		<label for="contactdiemrl">Điểm rèn luyện:</label>
+						  		<input type="text" class="form-control" id="contactdiemrl" placeholder="Enter Number">
+						  	</div>
+						  	<div class="form-group">
+						  		<label for="contactdiemctxh">Điểm CTXH:</label>
+						  		<input type="text" class="form-control" id="contactdiemctxh" placeholder="Enter Number">
+						  	</div>
+						  	<div class="form-group">
+						  		<label for="contactnoidung">Nội dung:</label>
+				 				<textarea rows="5" cols="50" name="contactnoidung" class="form-control" placeholder="Enter Content"></textarea>
+						  	</div>
+					  	</form>
+					  	<button class="btn btn-info" type="button" id="btnShowModal_themhd">Thêm hoạt động</button>
+			 		</div>
+			 	</div>
+			 	<div id="xoahoatdong" class="tab-pane fade">
+			 		<div class="col-md-12">
+						<table class="table">
+							<tr>
+								<th></th>
+								<th>STT</th>
+								<th>Tên hoạt động</th>
+								<th>Đơn vị tổ chức</th>
+								<th>Ngày bắt đầu</th>
+								<th>Ngày kết thúc</th>
+								<th>Số lượng</th>
+								<th>Điểm rèn luyện</th>
+								<th>Điểm CTXH</th>
+								<th>Nội dung</th>
+							</tr>
+							<tr>
+								<td><input type="checkbox"></td>
+								<td>1</td>
+								<td>Vệ sinh trường</td>
+								<td>ĐHSPK</td>
+								<td>20/10/2016</td>
+								<td>25/10/2016</td>
+								<td>60</td>
+								<td>5</td>
+								<td>10</td>
+								<td></td>
+							</tr>
+						 </table>
+					</div>
+					<div class="btnxoatb">
+						<button class="btn btn-info" type="button" id="btnShowModal_xoahd">Xóa hoạt động</button>
+					</div>
+			 	</div>
+			 	<div id="suahoatdong" class="tab-pane fade in active">
+			 		<div class="col-md-4">
+				 		<form method="post" id="contactform" action="" role="form">
+						  	<div class="form-group has-feedback">
+						  		<label for="contactactstt">STT:</label>
+						  		<input type="text" class="form-control" id="contactactstt" placeholder="Enter STT">
+						  	</div>
+						  	<div class="form-group">
+						  		<label for="contacttenhoatdong">Tên hoạt động:</label>
+						  		<input type="text" class="form-control" id="contacttenhoatdong" placeholder="Enter Active">
+						  	</div>
+						  	<div class="form-group">
+						  		<label for="contactdonvitochuc">Đơn vị tổ chức:</label>
+						  		<input type="text" class="form-control" id="contactdonvitochuc" placeholder="Enter Dept">
+						  	</div>
+						  	<div class="form-group">
+								<label for="contactngaybatdau">Ngày bắt đầu:</label>
+				 				<input type="date" class="form-control" id="contactngaybatdau" placeholder="Enter Date">
+						  	</div>
+						  	<div class="form-group">
+								<label for="contactngayketthuc">Ngày kết thúc:</label>
+				 				<input type="date" class="form-control" id="contactngayketthuc" placeholder="Enter Date">
+						  	</div>
+						 </form>
+					</div>
+					<div class="col-md-4">
+						<form method="post" id="contactform" action="" role="form">
+						  	<div class="form-group">
+						  		<label for="contactsoluong">Số lượng:</label>
+						  		<input type="text" class="form-control" id="contactsoluong" placeholder="Enter Number">
+						  	</div>
+						  	<div class="form-group">
+						  		<label for="contactdiemrl">Điểm rèn luyện:</label>
+						  		<input type="text" class="form-control" id="contactdiemrl" placeholder="Enter Number">
+						  	</div>
+						  	<div class="form-group">
+						  		<label for="contactdiemctxh">Điểm CTXH:</label>
+						  		<input type="text" class="form-control" id="contactdiemctxh" placeholder="Enter Number">
+						  	</div>
+						  	<div class="form-group">
+						  		<label for="contactnoidung">Nội dung:</label>
+				 				<textarea rows="5" cols="50" name="contactnoidung" class="form-control" placeholder="Enter Content"></textarea>
+						  	</div>
+						  	<button class="btn btn-info" type="submit" id="contactbtn">Sửa hoạt động</button>
+					  	</form>
+			 	</div>
+			 	
+			</div>
+		</div>
+	</div>
+	</div>
+	<script type="text/javascript">
+		function validateText(id)
+		{
+			if($("#"+id).val()==null || $("#"+id).val)()="")
+			{
+				var div=$("#"+id).closest("div");
+				div.removeClass("has-error");
+				$("#glypcn"+id).remove();
+				div.addClass("has-error has-feedback");
+				div.append('<span id="glypcn'+id+'" class=glyphicon glyphicon-remove form-control-feedback"></span>');
+				return false;
+			}
+			else
+			{
+				var div=$("#"+id).closest("div");
+				div.removeClass("has-error");
+				div.addClass("has-succes has-feedback");
+				$("#glypcn"+id).remove();
+				div.append('<span id="glypcn'+id+'" class=glyphicon glyphicon-ok form-control-feedback"></span>');
+				return true;
+			}
+		}
+		$(document).ready(
+			function(){
+				$("#contactbtn").click(function(){
+					if(!validateText("contactactstt")){
+						return false;
+					}
+					if(!validateText("contacttenhoatdong")){
+						return false;
+					}
+					if(!validateText("contactdonvitochuc")){
+						return false;
+					}
+					if(!validateText("contactngaybatdau")){
+						return false;
+					}
+					if(!validateText("contactngayketthuc")){
+						return false;
+					}
+					if(!validateText("contactsoluong")){
+						return false;
+					}
+					if(!validateText("contactdiemrl")){
+						return false;
+					}
+					if(!validateText("contactdiemctxh")){
+						return false;
+					}
+					if(!validateText("contactnoidung")){
+						return false;
+					}
+					$(form#contactform).submit();
+				});
+				
+			}
+		);
+	</script>
+</body>
+</html>
