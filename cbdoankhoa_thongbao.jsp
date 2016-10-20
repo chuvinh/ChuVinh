@@ -1,17 +1,20 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Quản lý hoạt động đoàn</title>
-
-    <!-- Bootstrap -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Quản lý hoạt động đoàn</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/cbdoankhoa_thongbao.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <script src="jquery/jquery.min.js"></script>
-  	<script src="bootstrap/js/bootstrap.min.js"></script>	
+  	<script src="bootstrap/js/bootstrap.min.js"></script>
+  	<style>
+	  .carousel-inner > .item > img,
+	  .carousel-inner > .item > a > img {
+	      margin: auto;
+	  }
+  	</style>
 </head>
 <body>
 	<div class="containt">
@@ -24,10 +27,10 @@
 		  </ol>
 		  <div class="carousel-inner" role="listbox">
 		    <div class="item active">
-		      <img src="images/logo_doanthanhnien.jpg" alt="ThanhNien1" width="273" height="345">
+		      <img src="images/logo_doanthanhnien.jpg" alt="ThanhNien1" width="483" height="345">
 		    </div>
 		    <div class="item">
-		      <img src="images/logo_doanthanhnien2.jpg" alt="ThanhNien2" width="260" height="345">
+		      <img src="images/logo_doanthanhnien2.jpg" alt="ThanhNien2" width="460" height="345">
 		    </div>
 		  </div>
 		  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -41,12 +44,12 @@
 		</div>
 		<div class="menu_tab">
 			<ul class="nav nav-pills nav-justified">
-				<li class="active"><a href="trangchu.html">Trang chủ</a></li>
-				<li class="active"><a href="cbdoankhoa_thongbao.html">Thông báo</a></li>
-				<li class="active"><a href="cbdoankhoa_hoatdong.html">Hoạt động</a></li>
-			 	<li class="active"><a href="cbdoankhoa_tracuu.html">Tra cứu</a></li>
-				<li class="active"><a href="cbdoankhoa_tinnhan.html">Tin nhắn</a></li>
-				<li class="active"><a href="login.html">Đăng xuất</a></li>
+				<li class="active"><a href="cbdoankhoa_login.jsp">Trang chủ</a></li>
+			  	<li class="active"><a href="cbdoankhoa_thongbao.jsp">Thông báo</a></li>
+			  	<li class="active"><a href="cbdoankhoa_hoatdong.jsp">Hoạt động</a></li>
+			  	<li class="active"><a href="cbdoankhoa_tracuu.jsp">Tra cứu</a></li>
+			  	<li class="active"><a href="cbdoankhoa_tinnhan.jsp">Tin nhắn</a></li>
+			  	<li class="active"><a href="trangchu.jsp">Đăng xuất</a></li>
 			</ul>
 		</div>
 		<div class="menu_tab_content">
@@ -80,22 +83,26 @@
 					</div>
 			 	</div>
 			 	<div id="themthongbao" class="tab-pane fade">
-			 		<div class="col-md-4">
+			 		<div class="col-md-8">
 				 		<form>
 						  	<div class="form-group">
 						  		<label>STT:</label>
-						  		<input type="text" class="form-control" id="STT" placeholder="Enter STT">
+						  		<input type="text" class="form-control" id="t_STT" placeholder="Enter STT">
 						  	</div>
 						  	<div class="form-group">
 						  		<label>Tên thông báo:</label>
-						  		<input type="text" class="form-control" id="nametb" placeholder="Enter Messages">
+						  		<input type="text" class="form-control" id="t_nametb" placeholder="Enter Messages">
+						  	</div>
+						  	<div class="form-group">
+						  		<label>Trích đoạn:</label>
+						  		<input type="text" class="form-control" id="t_trichdoan" placeholder="Enter Excepts">
 						  	</div>
 						  	<div class="form-group">
 								<label>Nội dung:</label>
-				 				<textarea rows="5" cols="50" name="description" class="form-control" placeholder="Enter Content"></textarea>
+				 				<textarea rows="5" cols="50" name="description" id="t_noidung" class="form-control" placeholder="Enter Content"></textarea>
 						  	</div>
-					  	</form>
-					  	<button class="btn btn-info" type="button" id="btnShowModal_themtb">Thêm thông báo</button>
+						  	<button class="btn btn-info" type="button" id="btnShowModal_themtb">Thêm thông báo</button>
+					  	</form>					  	
 			 		</div>
 			 	</div>
 			 	<div id="suathongbao" class="tab-pane fade">
@@ -118,9 +125,7 @@
 								<td></td>
 							</tr>
 						 </table>
-					</div>
-					<div class="btnsuatb">
-						<a href="cbdoankhoa_suathongbao.html"><button class="btn btn-info" type="button" id="btnShowModal_suatb">Sửa thông báo</button></a>
+						 <a href="cbdoankhoa_suathongbao.jsp"><button class="btn btn-info" type="button" id="btnShowModal_suatb">Sửa thông báo</button></a>
 					</div>
 			 	</div>
 			 	<div id="xoathongbao" class="tab-pane fade">
@@ -145,27 +150,56 @@
 						 </table>
 					</div>
 					<div class="btnxoatb">
-						<a href="cbdoankhoa.xoathongbao.html"><button class="btn btn-info" type="button" id="btnShowModal_xoatb">Xóa thông báo</button></a>
+						<a href="cbdoankhoa.xoathongbao.jsp"><button class="btn btn-info" type="button" id="btnShowModal_xoatb">Xóa thông báo</button></a>
 					</div>
 			 	</div>
 			</div>
 		</div>
 	</div>
 	<script type="text/javascript">
-	$(document).ready(function(){
-		$('#btnShowModal_suatb').click(function(){
-			$('#btnShowModal_suatb').modal('hide');
-		});
-		$('#btnShowModal_themtb').click(function(){
-			$('#btnShowModal_themtb').modal('show');
-		});
-		$('#btnShowModal_themtb').on('show.bs.modal',function(){
-			alert('Thêm thông báo thành công');
-		});
-		$('#btnShowModal_themtb').click(function(){
-			$('#btnShowModal_themtb').modal('hide');
-		});
-	});
-	</script>
+		function validateText(id)
+		{
+			if($("#"+id).val()==null || $("#"+id).val()=="")
+			{
+				var div=$("#"+id).closest("div");
+				div.removeClass("has-error");
+				$("#glypcn"+id).remove();
+				div.addClass("has-error has-feedback");
+				div.append('<span id="glypcn'+id+'" class="glyphicon glyphicon-remove form-control-feedback"></span>');
+				return false;
+			}
+			else
+			{
+				var div=$("#"+id).closest("div");
+				div.removeClass("has-error");
+				div.addClass("has-succes has-feedback");
+				$("#glypcn"+id).remove();
+				div.append('<span id="glypcn'+id+'" class="glyphicon glyphicon-ok form-control-feedback"></span>');
+				return true;
+			}
+		}
+		$(document).ready(
+			function(){
+				$("#btnShowModal_themtb").click(function(){
+					validateText("t_STT")
+					validateText("t_nametb")
+					validateText("t_trichdoan")
+					validateText("t_noidung")
+					if(!validateText("t_STT")){
+						return false;
+					}
+					if(!validateText("t_nametb")){
+						return false;
+					}
+					if(!validateText("t_trichdoan")){
+						return false;
+					}
+					if(!validateText("t_noidung")){
+						return false;
+					}
+				});
+			}
+		);
+      </script>
 </body>
 </html>

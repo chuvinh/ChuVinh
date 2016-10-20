@@ -1,14 +1,20 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Quản lý hoạt động đoàn</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Quản lý hoạt động đoàn</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/doanvien_tracuu.css" rel="stylesheet">
     <script src="jquery/jquery.min.js"></script>
   	<script src="bootstrap/js/bootstrap.min.js"></script>
+  	<link href="css/style.css" rel="stylesheet">
+  	<style>
+	  .carousel-inner > .item > img,
+	  .carousel-inner > .item > a > img {
+	      margin: auto;
+	  }
+  	</style>
 </head>
 <body>
 	<div class="containt">
@@ -21,10 +27,10 @@
 		  </ol>
 		  <div class="carousel-inner" role="listbox">
 		    <div class="item active">
-		      <img src="images/logo_doanthanhnien.jpg" alt="ThanhNien1" width="273" height="345">
+		      <img src="images/logo_doanthanhnien.jpg" alt="ThanhNien1" width="483" height="345">
 		    </div>
 		    <div class="item">
-		      <img src="images/logo_doanthanhnien2.jpg" alt="ThanhNien2" width="260" height="345">
+		      <img src="images/logo_doanthanhnien2.jpg" alt="ThanhNien2" width="460" height="345">
 		    </div>
 		  </div>
 		  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -38,13 +44,13 @@
 		</div>
 		<div class="menu_tab">
 			<ul class="nav nav-pills nav-justified">
-			  <li class="active"><a href="trangchu.html">Trang chủ</a></li>
-			  <li class="active"><a href="doanvien_xemthongbao.html">Thông báo</a></li>
-			  <li class="active"><a href="doanvien_hoatdong.html">Hoạt động</a></li>
-			  <li class="active"><a href="doanvien_tracuu.html">Tra cứu</a></li>
-			  <li class="active"><a href="doanvien_tinnhan.html">Tin nhắn</a></li>
-			  <li class="active"><a href="doanvien_xemdiem.html">Xem điểm</a></li>
-			  <li class="active"><a href="login.html">Đăng xuất</a></li>
+			  <li class="active"><a href="doanvien_login.jsp">Trang chủ</a></li>
+			  <li class="active"><a href="doanvien_xemthongbao.jsp">Thông báo</a></li>
+			  <li class="active"><a href="doanvien_hoatdong.jsp">Hoạt động</a></li>
+			  <li class="active"><a href="doanvien_tracuu.jsp">Tra cứu</a></li>
+			  <li class="active"><a href="doanvien_tinnhan.jsp">Tin nhắn</a></li>
+			  <li class="active"><a href="doanvien_xemdiem.jsp">Xem điểm</a></li>
+			  <li class="active"><a href="trangchu.jsp">Đăng xuất</a></li>
 			</ul>
 		</div>
 		<div class="menu_tab_content">
@@ -137,17 +143,69 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-		$(document).ready(function(){
-			$('#btnShowModal_tracuu').click(function(){
-				$('#btnShowModal_tracuu').modal('show');
-			});
-			$('#btnShowModal_tracuu').on('show.bs.modal',function(){
-				alert('Cập nhật thông tin thành công');
-			});
-			$('#btnShowModal_tracuu').click(function(){
-				$('#btnShowModal_tracuu').modal('hide');
-			});
-		});
-	</script>
+		function validateText(id)
+		{
+			if($("#"+id).val()==null || $("#"+id).val()=="")
+			{
+				var div=$("#"+id).closest("div");
+				div.removeClass("has-error");
+				$("#glypcn"+id).remove();
+				div.addClass("has-error has-feedback");
+				div.append('<span id="glypcn'+id+'" class="glyphicon glyphicon-remove form-control-feedback"></span>');
+				return false;
+			}
+			else
+			{
+				var div=$("#"+id).closest("div");
+				div.removeClass("has-error");
+				div.addClass("has-succes has-feedback");
+				$("#glypcn"+id).remove();
+				div.append('<span id="glypcn'+id+'" class="glyphicon glyphicon-ok form-control-feedback"></span>');
+				return true;
+			}
+		}
+		$(document).ready(
+			function(){
+				$("#btnShowModal_tracuu").click(function(){
+					validateText("MSSV")
+					validateText("namedv")
+					validateText("ngaysinh")
+					validateText("CMND")
+					validateText("gioitinh")
+					validateText("khoa")
+					validateText("lop")
+					validateText("ngayvaodoan")
+					validateText("diachi")
+					if(!validateText("MSSV")){
+						return false;
+					}
+					if(!validateText("namedv")){
+						return false;
+					}
+					if(!validateText("ngaysinh")){
+						return false;
+					}
+					if(!validateText("CMND")){
+						return false;
+					}
+					if(!validateText("gioitinh")){
+						return false;
+					}
+					if(!validateText("khoa")){
+						return false;
+					}
+					if(!validateText("lop")){
+						return false;
+					}
+					if(!validateText("ngayvaodoan")){
+						return false;
+					}
+					if(!validateText("diachi")){
+						return false;
+					}
+				});
+			}
+		);
+      </script>
 </body>
 </html>

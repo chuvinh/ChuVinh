@@ -1,17 +1,20 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Quản lý hoạt động đoàn</title>
-
-    <!-- Bootstrap -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Quản lý hoạt động đoàn</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/cbdoantruong.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <script src="jquery/jquery.min.js"></script>
-  	<script src="bootstrap/js/bootstrap.min.js"></script>	
+  	<script src="bootstrap/js/bootstrap.min.js"></script>
+  	<style>
+	  .carousel-inner > .item > img,
+	  .carousel-inner > .item > a > img {
+	      margin: auto;
+	  }
+  	</style>
 </head>
 <body>
 	<div class="containt">
@@ -24,10 +27,10 @@
 		  </ol>
 		  <div class="carousel-inner" role="listbox">
 		    <div class="item active">
-		      <img src="images/logo_doanthanhnien.jpg" alt="ThanhNien1" width="273" height="345">
+		      <img src="images/logo_doanthanhnien.jpg" alt="ThanhNien1" width="483" height="345">
 		    </div>
 		    <div class="item">
-		      <img src="images/logo_doanthanhnien2.jpg" alt="ThanhNien2" width="260" height="345">
+		      <img src="images/logo_doanthanhnien2.jpg" alt="ThanhNien2" width="460" height="345">
 		    </div>
 		  </div>
 		  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -40,10 +43,10 @@
 		  </a>
 		</div>
 		<ul class="nav nav-pills nav-justified">
-		  <li class="active"><a href="trangchu.html">Trang chủ</a></li>
-		  <li class="active"><a href="cbdoantruong_qlhoatdong.html">Quản lý hoạt động</a></li>
-		  <li class="active"><a href="cbdoantruong_qlchidoan.html">Quản lý chi đoàn</a></li>
-		  <li class="active"><a href="login.html">Đăng xuất</a></li>
+		  <li class="active"><a href="cbdoantruong_login.jsp">Trang chủ</a></li>
+		  <li class="active"><a href="cbdoantruong_qlhoatdong.jsp">Quản lý hoạt động</a></li>
+		  <li class="active"><a href="cbdoantruong_qlchidoan.jsp">Quản lý chi đoàn</a></li>
+		  <li class="active"><a href="trangchu.jsp">Đăng xuất</a></li>
 		</ul>
 		<div class="menu_tab_content">
 			<ul class="nav nav-tabs">
@@ -88,22 +91,22 @@
 				 		<form>
 						  	<div class="form-group">
 						  		<label>Tên chi đoàn:</label>
-						  		<input type="text" class="form-control" id="namecd" placeholder="Enter Name">
+						  		<input type="text" class="form-control" id="t_namecd" placeholder="Enter Name">
 						  	</div>
 						  	<div class="form-group">
 						  		<label>Tên cán bộ đoàn:</label>
-						  		<input type="text" class="form-control" id="namecd" placeholder="Enter Name">
+						  		<input type="text" class="form-control" id="t_namecbd" placeholder="Enter Name">
 						  	</div>
 						  	<div class="form-group">
 						  		<label>Số điện thoại:</label>
-						  		<input type="text" class="form-control" id="sdt" placeholder="Enter Phone Number">
+						  		<input type="text" class="form-control" id="t_sdt" placeholder="Enter Phone Number">
 						  	</div>
 						  	<div class="form-group">
 								<label>Email:</label>
-				 				<input type="date" class="form-control" id="email" placeholder="Enter Email">
+				 				<input type="text" class="form-control" id="t_email" placeholder="Enter Email">
 						  	</div>
+						  	<button class="btn btn-info" type="button" id="btnShowModal_themcd">Thêm chi đoàn</button>
 						 </form>
-						 <button class="btn btn-info" type="button" id="btnShowModal_themcd">Thêm chi đoàn</button>
 					</div>
 			 	</div>
 			 	<div id="xoachidoan" class="tab-pane fade">
@@ -148,57 +151,89 @@
 				 		<form>
 						  	<div class="form-group">
 						  		<label>Tên chi đoàn:</label>
-						  		<input type="text" class="form-control" id="namecd" placeholder="Enter Name">
+						  		<input type="text" class="form-control" id="s_namecd" placeholder="Enter Name">
 						  	</div>
 						  	<div class="form-group">
 						  		<label>Tên cán bộ đoàn:</label>
-						  		<input type="text" class="form-control" id="namecd" placeholder="Enter Name">
+						  		<input type="text" class="form-control" id="s_namecbd" placeholder="Enter Name">
 						  	</div>
 						  	<div class="form-group">
 						  		<label>Số điện thoại:</label>
-						  		<input type="text" class="form-control" id="sdt" placeholder="Enter Phone Number">
+						  		<input type="text" class="form-control" id="s_sdt" placeholder="Enter Phone Number">
 						  	</div>
 						  	<div class="form-group">
 								<label>Email:</label>
-				 				<input type="date" class="form-control" id="email" placeholder="Enter Email">
+				 				<input type="date" class="form-control" id="s_email" placeholder="Enter Email">
 						  	</div>
+						  	<button class="btn btn-info" type="button" id="btnShowModal_suacd">Sửa chi đoàn</button>
 						 </form>
-						 <button class="btn btn-info" type="button" id="btnShowModal_suacd">Sửa chi đoàn</button>
 					</div>
 			 	</div>
 			</div>
 		</div>
 	</div>
 	<script type="text/javascript">
-	$(document).ready(function(){
-		$('#btnShowModal_xoacd').click(function(){
-			$('#btnShowModal_xoacd').modal('show');
-		});
-		$('#btnShowModal_xoacd').on('show.bs.modal',function(){
-			alert('Xóa chi đoàn thành công');
-		});
-		$('#btnShowModal_xoacd').click(function(){
-			$('#btnShowModal_xoacd').modal('hide');
-		});
-		$('#btnShowModal_suacd').click(function(){
-			$('#btnShowModal_suacd').modal('show');
-		});
-		$('#btnShowModal_suacd').on('show.bs.modal',function(){
-			alert('Sửa chi đoàn thành công');
-		});
-		$('#btnShowModal_suacd').click(function(){
-			$('#btnShowModal_suacd').modal('hide');
-		});
-		$('#btnShowModal_themcd').click(function(){
-			$('#btnShowModal_suacd').modal('show');
-		});
-		$('#btnShowModal_themcd').on('show.bs.modal',function(){
-			alert('Thêm chi đoàn thành công');
-		});
-		$('#btnShowModal_themcd').click(function(){
-			$('#btnShowModal_themcd').modal('hide');
-		});
-	});
-	</script>
+		function validateText(id)
+		{
+			if($("#"+id).val()==null || $("#"+id).val()=="")
+			{
+				var div=$("#"+id).closest("div");
+				div.removeClass("has-error");
+				$("#glypcn"+id).remove();
+				div.addClass("has-error has-feedback");
+				div.append('<span id="glypcn'+id+'" class="glyphicon glyphicon-remove form-control-feedback"></span>');
+				return false;
+			}
+			else
+			{
+				var div=$("#"+id).closest("div");
+				div.removeClass("has-error");
+				div.addClass("has-succes has-feedback");
+				$("#glypcn"+id).remove();
+				div.append('<span id="glypcn'+id+'" class="glyphicon glyphicon-ok form-control-feedback"></span>');
+				return true;
+			}
+		}
+		$(document).ready(
+			function(){
+				$("#btnShowModal_themcd").click(function(){
+					validateText("t_namecd")
+					validateText("t_namecbd")
+					validateText("t_sdt")
+					validateText("t_email")
+					if(!validateText("t_namecd")){
+						return false;
+					}
+					if(!validateText("t_namecbd")){
+						return false;
+					}
+					if(!validateText("t_sdt")){
+						return false;
+					}
+					if(!validateText("t_email")){
+						return false;
+					}
+				});
+				$("#btnShowModal_suacd").click(function(){
+					validateText("s_namecd")
+					validateText("s_namecbd")
+					validateText("s_sdt")
+					validateText("s_email")
+					if(!validateText("s_namecd")){
+						return false;
+					}
+					if(!validateText("s_namecbd")){
+						return false;
+					}
+					if(!validateText("s_sdt")){
+						return false;
+					}
+					if(!validateText("s_email")){
+						return false;
+					}
+				});
+			}
+		);
+      </script>
 </body>
 </html>

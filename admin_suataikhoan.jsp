@@ -1,17 +1,20 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Quản lý hoạt động đoàn</title>
-
-    <!-- Bootstrap -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Quản lý hoạt động đoàn</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/cbdoankhoa_thongbao.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <script src="jquery/jquery.min.js"></script>
-  	<script src="bootstrap/js/bootstrap.min.js"></script>	
+  	<script src="bootstrap/js/bootstrap.min.js"></script>
+  	<style>
+	  .carousel-inner > .item > img,
+	  .carousel-inner > .item > a > img {
+	      margin: auto;
+	  }
+  	</style>
 </head>
 <body>
 	<div class="containt">
@@ -24,10 +27,10 @@
 		  </ol>
 		  <div class="carousel-inner" role="listbox">
 		    <div class="item active">
-		      <img src="images/logo_doanthanhnien.jpg" alt="ThanhNien1" width="273" height="345">
+		      <img src="images/logo_doanthanhnien.jpg" alt="ThanhNien1" width="483" height="345">
 		    </div>
 		    <div class="item">
-		      <img src="images/logo_doanthanhnien2.jpg" alt="ThanhNien2" width="260" height="345">
+		      <img src="images/logo_doanthanhnien2.jpg" alt="ThanhNien2" width="460" height="345">
 		    </div>
 		  </div>
 		  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -41,9 +44,9 @@
 		</div>
 		<div class="menu_tab">
 			<ul class="nav nav-pills nav-justified">
-			  <li class="active"><a href="admin_qltaikhoan.html">Quản lý tài khoản</a></li>
-			  <li class="active"><a href="admin_qlnguoidung.html">Quản lý người dùng</a></li>
-			  <li class="active"><a href="login.html">Đăng xuất</a></li>
+			  <li class="active"><a href="admin_qltaikhoan.jsp">Quản lý tài khoản</a></li>
+			  <li class="active"><a href="admin_qlnguoidung.jsp">Quản lý người dùng</a></li>
+			  <li class="active"><a href="trangchu.jsp">Đăng xuất</a></li>
 			</ul>
 		</div>
 		<div class="menu_tab_content">
@@ -85,23 +88,23 @@
 				 		<form>
 						  	<div class="form-group">
 						  		<label>STT:</label>
-						  		<input type="text" class="form-control" id="STT" placeholder="Enter STT">
+						  		<input type="text" class="form-control" id="t_STT" placeholder="Enter STT">
 						  	</div>
 						  	<div class="form-group">
 						  		<label>Tên tài khoản:</label>
-						  		<input type="text" class="form-control" id="namend" placeholder="Enter Name">
+						  		<input type="text" class="form-control" id="t_namend" placeholder="Enter Name">
 						  	</div>
 						  	<div class="form-group">
 						  		<label>Password:</label>
-						  		<input type="password" class="form-control" id="ngaysinh" placeholder="Enter Password">
+						  		<input type="password" class="form-control" id="t_ngaysinh" placeholder="Enter Password">
 						  	</div>
 						  	<div class="form-group">
 						  		<label>Email:</label>
-						  		<input type="text" class="form-control" id="email" placeholder="Enter Email">
+						  		<input type="text" class="form-control" id="t_email" placeholder="Enter Email">
 						  	</div>
 						  	<div class="form-group">
 								<label>Số điện thoại:</label>
-				 				<input type="text" class="form-control" id="SDT" placeholder="Enter Number">
+				 				<input type="text" class="form-control" id="t_SDT" placeholder="Enter Number">
 				 			</div>
 						 </form>
 					  	<button class="btn btn-info" type="button" id="btnShowModal_themtk">Thêm tài khoản</button>
@@ -145,23 +148,23 @@
 				 		<form>
 						  	<div class="form-group">
 						  		<label>STT:</label>
-						  		<input type="text" class="form-control" id="STT" placeholder="Enter STT">
+						  		<input type="text" class="form-control" id="s_STT" placeholder="Enter STT">
 						  	</div>
 						  	<div class="form-group">
 						  		<label>Tên tài khoản:</label>
-						  		<input type="text" class="form-control" id="namend" placeholder="Enter Name">
+						  		<input type="text" class="form-control" id="s_namend" placeholder="Enter Name">
 						  	</div>
 						  	<div class="form-group">
 						  		<label>Password:</label>
-						  		<input type="password" class="form-control" id="ngaysinh" placeholder="Enter Password">
+						  		<input type="password" class="form-control" id="s_ngaysinh" placeholder="Enter Password">
 						  	</div>
 						  	<div class="form-group">
 						  		<label>Email:</label>
-						  		<input type="text" class="form-control" id="email" placeholder="Enter Email">
+						  		<input type="text" class="form-control" id="s_email" placeholder="Enter Email">
 						  	</div>
 						  	<div class="form-group">
 								<label>Số điện thoại:</label>
-				 				<input type="text" class="form-control" id="SDT" placeholder="Enter Number">
+				 				<input type="text" class="form-control" id="s_SDT" placeholder="Enter Number">
 				 			</div>
 						 </form>
 					  	<button class="btn btn-info" type="button" id="btnShowModal_suatk">Sửa tài khoản</button>
@@ -172,35 +175,75 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-	$(document).ready(function(){
-		$('#btnShowModal_xoatk').click(function(){
-			$('#btnShowModal_xoatk').modal('show');
-		});
-		$('#btnShowModal_xoatk').on('show.bs.modal',function(){
-			alert('Xóa tài khoản thành công');
-		});
-		$('#btnShowModal_xoatk').click(function(){
-			$('#btnShowModal_xoatk').modal('hide');
-		});
-		$('#btnShowModal_themtk').click(function(){
-			$('#btnShowModal_themtk').modal('show');
-		});
-		$('#btnShowModal_themtk').on('show.bs.modal',function(){
-			alert('Thêm tài khoản thành công');
-		});
-		$('#btnShowModal_themtk').click(function(){
-			$('#btnShowModal_themtk').modal('hide');
-		});
-		$('#btnShowModal_suatk').click(function(){
-			$('#btnShowModal_suatk').modal('show');
-		});
-		$('#btnShowModal_suatk').on('show.bs.modal',function(){
-			alert('Sửa tài khoản thành công');
-		});
-		$('#btnShowModal_suatk').click(function(){
-			$('#btnShowModal_suatk').modal('hide');
-		});
-	});
-	</script>
+		function validateText(id)
+		{
+			if($("#"+id).val()==null || $("#"+id).val()=="")
+			{
+				var div=$("#"+id).closest("div");
+				div.removeClass("has-error");
+				$("#glypcn"+id).remove();
+				div.addClass("has-error has-feedback");
+				div.append('<span id="glypcn'+id+'" class="glyphicon glyphicon-remove form-control-feedback"></span>');
+				return false;
+			}
+			else
+			{
+				var div=$("#"+id).closest("div");
+				div.removeClass("has-error");
+				div.addClass("has-succes has-feedback");
+				$("#glypcn"+id).remove();
+				div.append('<span id="glypcn'+id+'" class="glyphicon glyphicon-ok form-control-feedback"></span>');
+				return true;
+			}
+		}
+		$(document).ready(
+			function(){
+				$("#btnShowModal_themtk").click(function(){
+					validateText("t_STT")
+					validateText("t_namend")
+					validateText("t_ngaysinh")
+					validateText("t_email")
+					validateText("t_SDT")
+					if(!validateText("t_STT")){
+						return false;
+					}
+					if(!validateText("t_namend")){
+						return false;
+					}
+					if(!validateText("t_ngaysinh")){
+						return false;
+					}
+					if(!validateText("t_email")){
+						return false;
+					}
+					if(!validateText("t_SDT")){
+						return false;
+					}
+				});
+				$("#btnShowModal_suatk").click(function(){
+					validateText("s_STT")
+					validateText("s_namend")
+					validateText("s_ngaysinh")
+					validateText("s_email")
+					validateText("s_SDT")
+					if(!validateText("s_STT")){
+						return false;
+					}
+					if(!validateText("s_namend")){
+						return false;
+					}
+					if(!validateText("s_ngaysinh")){
+						return false;
+					}
+					if(!validateText("s_email")){
+						return false;
+					}
+					if(!validateText("s_SDT")){
+						return false;
+					}
+				});
+			}
+		);
+      </script>
 </body>
 </html>

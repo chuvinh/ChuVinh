@@ -1,17 +1,20 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Quản lý hoạt động đoàn</title>
-
-    <!-- Bootstrap -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Quản lý hoạt động đoàn</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/cbdoankhoa_thongbao.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <script src="jquery/jquery.min.js"></script>
-  	<script src="bootstrap/js/bootstrap.min.js"></script>	
+  	<script src="bootstrap/js/bootstrap.min.js"></script>
+  	<style>
+	  .carousel-inner > .item > img,
+	  .carousel-inner > .item > a > img {
+	      margin: auto;
+	  }
+  	</style>
 </head>
 <body>
 	<div class="containt">
@@ -24,10 +27,10 @@
 		  </ol>
 		  <div class="carousel-inner" role="listbox">
 		    <div class="item active">
-		      <img src="images/logo_doanthanhnien.jpg" alt="ThanhNien1" width="273" height="345">
+		      <img src="images/logo_doanthanhnien.jpg" alt="ThanhNien1" width="483" height="345">
 		    </div>
 		    <div class="item">
-		      <img src="images/logo_doanthanhnien2.jpg" alt="ThanhNien2" width="260" height="345">
+		      <img src="images/logo_doanthanhnien2.jpg" alt="ThanhNien2" width="460" height="345">
 		    </div>
 		  </div>
 		  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -41,9 +44,9 @@
 		</div>
 		<div class="menu_tab">
 			<ul class="nav nav-pills nav-justified">
-			  <li class="active"><a href="admin_qltaikhoan.html">Quản lý tài khoản</a></li>
-			  <li class="active"><a href="admin_qlnguoidung.html">Quản lý người dùng</a></li>
-			  <li class="active"><a href="login.html">Đăng xuất</a></li>
+			  <li class="active"><a href="admin_qltaikhoan.jsp">Quản lý tài khoản</a></li>
+			  <li class="active"><a href="admin_qlnguoidung.jsp">Quản lý người dùng</a></li>
+			  <li class="active"><a href="trangchu.jsp">Đăng xuất</a></li>
 			</ul>
 		</div>
 		<div class="menu_tab_content">
@@ -116,54 +119,52 @@
 				 		<form>
 						  	<div class="form-group">
 						  		<label>MSSV:</label>
-						  		<input type="text" class="form-control" id="MSSV" placeholder="Enter MSSV">
+						  		<input type="text" class="form-control" id="t_MSSV" placeholder="Enter MSSV">
 						  	</div>
 						  	<div class="form-group">
 						  		<label>Tên đoàn viên:</label>
-						  		<input type="text" class="form-control" id="namend" placeholder="Enter Name">
+						  		<input type="text" class="form-control" id="t_namend" placeholder="Enter Name">
 						  	</div>
 						  	<div class="form-group">
 						  		<label>Ngày sinh:</label>
-						  		<input type="date" class="form-control" id="ngaysinh" placeholder="Enter Date">
+						  		<input type="date" class="form-control" id="t_ngaysinh" placeholder="Enter Date">
 						  	</div>
 						  	<div class="form-group">
 								<label>CMND:</label>
-				 				<input type="text" class="form-control" id="CMND" placeholder="Enter CMND">
+				 				<input type="text" class="form-control" id="t_CMND" placeholder="Enter CMND">
 						  	</div>
 						  	<div class="form-group">
 								<label>Giới tính:</label>
-				 				<input type="date" class="form-control" id="gioitinh" placeholder="Enter Sex">
+				 				<input type="date" class="form-control" id="t_gioitinh" placeholder="Enter Sex">
 						  	</div>
 						  	<div class="form-group">
 						  		<label>Email:</label>
-						  		<input type="text" class="form-control" id="email" placeholder="Enter Email">
+						  		<input type="text" class="form-control" id="t_email" placeholder="Enter Email">
 						  	</div>
-						 </form>
 					</div>
 					<div class="col-md-4">
-						<form>
 						  	<div class="form-group">
 						  		<label>Số điện thoại:</label>
-						  		<input type="text" class="form-control" id="sdt" placeholder="Enter Number">
+						  		<input type="text" class="form-control" id="t_sdt" placeholder="Enter Number">
 						  	</div>
 						  	<div class="form-group">
 						  		<label>Khoa:</label>
-						  		<input type="text" class="form-control" id="khoa" placeholder="Enter Dept">
+						  		<input type="text" class="form-control" id="t_khoa" placeholder="Enter Dept">
 						  	</div>
 						  	<div class="form-group">
 						  		<label>Lớp:</label>
-				 				<input type="text" class="form-control" id="lop" placeholder="Enter Class">
+				 				<input type="text" class="form-control" id="t_lop" placeholder="Enter Class">
 						  	</div>
 						  	<div class="form-group">
 						  		<label>Ngày vào đoàn:</label>
-				 				<input type="date" class="form-control" id="ngayvaodoan" placeholder="Enter Date">
+				 				<input type="date" class="form-control" id="t_ngayvaodoan" placeholder="Enter Date">
 						  	</div>
 						  	<div class="form-group">
 						  		<label>Địa chỉ:</label>
-				 				<input type="text" class="form-control" id="diachi" placeholder="Enter Address">
+				 				<input type="text" class="form-control" id="t_diachi" placeholder="Enter Address">
 						  	</div>
+						  	<br><button class="btn btn-info" type="button" id="btnShowModal_themnd">Thêm người dùng</button>
 					  	</form>
-					  	<button class="btn btn-info" type="button" id="btnShowModal_themnd">Thêm người dùng</button>
 			 		</div>
 			 	</div>
 			 	<div id="xoanguoidung" class="tab-pane fade">
@@ -291,7 +292,7 @@
 						 </table>
 					</div>
 					<div class="btnsuatb">
-						<a href="admin_suanguoidung.html"><button class="btn btn-info" type="button" id="btnShowModal_suand">Sửa hoạt động</button></a>
+						<a href="admin_suanguoidung.jsp"><button class="btn btn-info" type="button" id="btnShowModal_suand">Sửa hoạt động</button></a>
 					</div>
 			 	</div>
 			 	
@@ -299,26 +300,77 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-	$(document).ready(function(){
-		$('#btnShowModal_xoand').click(function(){
-			$('#btnShowModal_xoand').modal('show');
-		});
-		$('#btnShowModal_xoand').on('show.bs.modal',function(){
-			alert('Xóa người dùng thành công');
-		});
-		$('#btnShowModal_xoand').click(function(){
-			$('#btnShowModal_xoand').modal('hide');
-		});
-		$('#btnShowModal_themnd').click(function(){
-			$('#btnShowModal_themnd').modal('show');
-		});
-		$('#btnShowModal_themnd').on('show.bs.modal',function(){
-			alert('Thêm người dùng thành công');
-		});
-		$('#btnShowModal_themnd').click(function(){
-			$('#btnShowModal_themnd').modal('hide');
-		});
-	});
-	</script>
+		function validateText(id)
+		{
+			if($("#"+id).val()==null || $("#"+id).val()=="")
+			{
+				var div=$("#"+id).closest("div");
+				div.removeClass("has-error");
+				$("#glypcn"+id).remove();
+				div.addClass("has-error has-feedback");
+				div.append('<span id="glypcn'+id+'" class="glyphicon glyphicon-remove form-control-feedback"></span>');
+				return false;
+			}
+			else
+			{
+				var div=$("#"+id).closest("div");
+				div.removeClass("has-error");
+				div.addClass("has-succes has-feedback");
+				$("#glypcn"+id).remove();
+				div.append('<span id="glypcn'+id+'" class="glyphicon glyphicon-ok form-control-feedback"></span>');
+				return true;
+			}
+		}
+		$(document).ready(
+			function(){
+				$("#btnShowModal_themnd").click(function(){
+					validateText("t_MSSV")
+					validateText("t_namend")
+					validateText("t_ngaysinh")
+					validateText("t_CMND")
+					validateText("t_gioitinh")
+					validateText("t_email")
+					validateText("t_sdt")
+					validateText("t_khoa")
+					validateText("t_lop")
+					validateText("t_ngayvaodoan")
+					validateText("t_diachi")
+					if(!validateText("t_MSSV")){
+						return false;
+					}
+					if(!validateText("t_namend")){
+						return false;
+					}
+					if(!validateText("t_ngaysinh")){
+						return false;
+					}
+					if(!validateText("t_CMND")){
+						return false;
+					}
+					if(!validateText("t_gioitinh")){
+						return false;
+					}
+					if(!validateText("t_email")){
+						return false;
+					}
+					if(!validateText("t_sdt")){
+						return false;
+					}
+					if(!validateText("t_khoa")){
+						return false;
+					}
+					if(!validateText("t_lop")){
+						return false;
+					}
+					if(!validateText("t_ngayvaodoan")){
+						return false;
+					}
+					if(!validateText("t_diachi")){
+						return false;
+					}
+				});
+			}
+		);
+      </script>
 </body>
 </html>

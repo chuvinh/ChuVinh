@@ -1,14 +1,20 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Quản lý hoạt động đoàn</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Quản lý hoạt động đoàn</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/doanvien_xemdiem.css" rel="stylesheet">
     <script src="jquery/jquery.min.js"></script>
   	<script src="bootstrap/js/bootstrap.min.js"></script>
+  	<link href="css/style.css" rel="stylesheet">
+  	<style>
+	  .carousel-inner > .item > img,
+	  .carousel-inner > .item > a > img {
+	      margin: auto;
+	  }
+  	</style>
 </head>
 <body>
 	<div class="containt">
@@ -21,10 +27,10 @@
 		  </ol>
 		  <div class="carousel-inner" role="listbox">
 		   <div class="item active">
-		      <img src="images/logo_doanthanhnien.jpg" alt="ThanhNien1" width="273" height="345">
+		      <img src="images/logo_doanthanhnien.jpg" alt="ThanhNien1" width="483" height="345">
 		    </div>
 		    <div class="item">
-		      <img src="images/logo_doanthanhnien2.jpg" alt="ThanhNien2" width="260" height="345">
+		      <img src="images/logo_doanthanhnien2.jpg" alt="ThanhNien2" width="460" height="345">
 		    </div>
 		  </div>
 		  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -38,13 +44,13 @@
 		</div>
 		<div class="menu_tab">
 			<ul class="nav nav-pills nav-justified">
-			 	<li class="active"><a href="trangchu.html">Trang chủ</a></li>
-				  <li class="active"><a href="doanvien_xemthongbao.html">Thông báo</a></li>
-				  <li class="active"><a href="doanvien_hoatdong.html">Hoạt động</a></li>
-				  <li class="active"><a href="doanvien_tracuu.html">Tra cứu</a></li>
-				  <li class="active"><a href="doanvien_tinnhan.html">Tin nhắn</a></li>
-				  <li class="active"><a href="doanvien_xemdiem.html">Xem điểm</a></li>
-				  <li class="active"><a href="login.html">Đăng xuất</a></li>
+			 	<li class="active"><a href="doanvien_login.jsp">Trang chủ</a></li>
+				  <li class="active"><a href="doanvien_xemthongbao.jsp">Thông báo</a></li>
+				  <li class="active"><a href="doanvien_hoatdong.jsp">Hoạt động</a></li>
+				  <li class="active"><a href="doanvien_tracuu.jsp">Tra cứu</a></li>
+				  <li class="active"><a href="doanvien_tinnhan.jsp">Tin nhắn</a></li>
+				  <li class="active"><a href="doanvien_xemdiem.jsp">Xem điểm</a></li>
+				  <li class="active"><a href="trangchu.jsp">Đăng xuất</a></li>
 			</ul>
 		</div>
 		<div class="menu_tab_content">
@@ -161,6 +167,10 @@
 			 	
 			</div>
 		</div>
+	</div>
+	<div class="navbar navbar-default navbar-fixed-bottom">
+			<p class="navbar-text navbar-center">Đoàn trường Đại học Sư Phạm Kỹ Thuật TP Hồ Chí Minh</p>
+			<p class="navbar-text">Design by: Vịnh</p>
 	</div>
 </body>
 </html>
