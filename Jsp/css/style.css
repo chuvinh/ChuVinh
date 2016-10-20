@@ -1,0 +1,13 @@
+.modal-body{
+	font-family: arial;
+}
+.tab-content{
+	margin:10px auto;
+}
+.menu_tab_content{
+	margin:10px auto;
+	padding: 10px;
+}
+.panel-default {
+    border-color: #ddd;
+}
