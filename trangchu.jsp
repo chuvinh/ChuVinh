@@ -57,13 +57,13 @@
 										<input name="doanvien" type="radio" value="admin" id="check_admin" />Admin
 									</form>
 									<form class="form-horizontal">
-						              	<div class="form-group" "="">
+						              	<div class="form-group">
 						                	<label class="control-label col-md-7 " style="text-align: left; margin-bottom: 5px;">Tên đăng nhập:</label>
 						                	<div class="col-md-12">
 						                  		<input type="text" class="form-control" placeholder="Enter UserName " id="inputUsername">
 						                	</div>
 						              	</div>
-						              	<div class="form-group" "="">
+						              	<div class="form-group">
 							                <label class="control-label col-md-12" style="text-align: left; margin-bottom: 5px;">Mật khẩu:</label>
 							                <div class="col-md-12">
 							                  	<input type="password" class="form-control" placeholder="Enter Password " id="inputPassword">
