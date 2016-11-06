@@ -51,6 +51,7 @@
 				  <li><a href="doanvien_tracuu.jsp">Tra cứu</a></li>
 				  <li><a href="doanvien_tinnhan.jsp">Tin nhắn</a></li>
 				  <li><a href="doanvien_xemdiem.jsp">Xem điểm</a></li>
+				  <li><a href="#">Thảo luận</a></li>
 				  <li><a href="trangchu.jsp">Đăng xuất</a></li>
 		        </ul>
 		    </div>

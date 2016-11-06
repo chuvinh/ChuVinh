@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -17,6 +18,7 @@
   	</style>
 </head>
 <body>
+	<sql:setDataSource driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3307/qlhdd" user="root" password="12345678"/>
 	<div class="containt">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		  <ol class="carousel-indicators">
@@ -62,31 +64,31 @@
 			<div class="tab-content">
 			 	<div id="dshoatdong" class="tab-pane fade in active">
 					<div class="col-md-12">
+						<sql:query var="items" sql="SELECT TenHoatDong,ThoiGianBatDau,ThoiGianKetThuc,SoLuong,DiaDiem,DiemRL,DiemCTXH,TrangThai FROM hoatdong"/>
 						<table class="table">
 							<tr>
-								<th></th>
-								<th>STT</th>
 								<th>Tên hoạt động</th>
-								<th>Đơn vị tổ chức</th>
 								<th>Ngày bắt đầu</th>
 								<th>Ngày kết thúc</th>
 								<th>Số lượng</th>
-								<th>Điểm rèn luyện</th>
+								<th>Địa điểm</th>
+								<th>Điểm RL</th>
 								<th>Điểm CTXH</th>
-								<th>Nội dung</th>
+								<th>Trạng Thái</th>
 							</tr>
-							<tr>
-								<td><input type="checkbox"></td>
-								<td>1</td>
-								<td>Vệ sinh trường</td>
-								<td>ĐHSPK</td>
-								<td>20/10/2016</td>
-								<td>25/10/2016</td>
-								<td>60</td>
-								<td>5</td>
-								<td>10</td>
-								<td></td>
-							</tr>
+							<c:forEach var="row" items="">
+								<tr>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+								</tr>
+							</c:forEach>
+						 </table>
 						 </table>
 						<div class="btnxemct">
 							<a href="cbdoantruong_xemcthoatdong.jsp"><button class="btn btn-info" type="button" id="btnShowModal_xemcthd">Xem chi tiết</button></a>
@@ -140,31 +142,30 @@
 			 	</div>
 			 	<div id="xoahoatdong" class="tab-pane fade">
 			 		<div class="col-md-12">
+						<sql:query var="items" sql="SELECT TenHoatDong,ThoiGianBatDau,ThoiGianKetThuc,SoLuong,DiaDiem,DiemRL,DiemCTXH,TrangThai FROM hoatdong"/>
 						<table class="table">
 							<tr>
-								<th></th>
-								<th>STT</th>
 								<th>Tên hoạt động</th>
-								<th>Đơn vị tổ chức</th>
 								<th>Ngày bắt đầu</th>
 								<th>Ngày kết thúc</th>
 								<th>Số lượng</th>
-								<th>Điểm rèn luyện</th>
+								<th>Địa điểm</th>
+								<th>Điểm RL</th>
 								<th>Điểm CTXH</th>
-								<th>Nội dung</th>
+								<th>Trạng Thái</th>
 							</tr>
-							<tr>
-								<td><input type="checkbox"></td>
-								<td>1</td>
-								<td>Vệ sinh trường</td>
-								<td>ĐHSPK</td>
-								<td>20/10/2016</td>
-								<td>25/10/2016</td>
-								<td>60</td>
-								<td>5</td>
-								<td>10</td>
-								<td></td>
-							</tr>
+							<c:forEach var="row" items="">
+								<tr>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+								</tr>
+							</c:forEach>
 						 </table>
 					</div>
 					<div class="btnxoatb">
@@ -173,31 +174,30 @@
 			 	</div>
 			 	<div id="suahoatdong" class="tab-pane fade">
 			 		<div class="col-md-12">
+						<sql:query var="items" sql="SELECT TenHoatDong,ThoiGianBatDau,ThoiGianKetThuc,SoLuong,DiaDiem,DiemRL,DiemCTXH,TrangThai FROM hoatdong"/>
 						<table class="table">
 							<tr>
-								<th></th>
-								<th>STT</th>
 								<th>Tên hoạt động</th>
-								<th>Đơn vị tổ chức</th>
 								<th>Ngày bắt đầu</th>
 								<th>Ngày kết thúc</th>
 								<th>Số lượng</th>
-								<th>Điểm rèn luyện</th>
+								<th>Địa điểm</th>
+								<th>Điểm RL</th>
 								<th>Điểm CTXH</th>
-								<th>Nội dung</th>
+								<th>Trạng Thái</th>
 							</tr>
-							<tr>
-								<td><input type="checkbox"></td>
-								<td>1</td>
-								<td>Vệ sinh trường</td>
-								<td>ĐHSPK</td>
-								<td>20/10/2016</td>
-								<td>25/10/2016</td>
-								<td>60</td>
-								<td>5</td>
-								<td>10</td>
-								<td></td>
-							</tr>
+							<c:forEach var="row" items="">
+								<tr>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+								</tr>
+							</c:forEach>
 						 </table>
 					</div>
 					<div class="btnsuatb">

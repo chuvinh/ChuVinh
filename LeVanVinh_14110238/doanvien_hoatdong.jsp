@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -17,6 +18,7 @@
   	</style>
 </head>
 <body>
+	<sql:setDataSource driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3307/qlhdd" user="root" password="12345678"/>
 	<div class="containt">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		  <ol class="carousel-indicators">
@@ -51,6 +53,7 @@
 				  <li><a href="doanvien_tracuu.jsp">Tra cứu</a></li>
 				  <li><a href="doanvien_tinnhan.jsp">Tin nhắn</a></li>
 				  <li><a href="doanvien_xemdiem.jsp">Xem điểm</a></li>
+				  <li><a href="#">Thảo luận</a></li>
 				  <li><a href="trangchu.jsp">Đăng xuất</a></li>
 		        </ul>
 		    </div>
@@ -58,111 +61,61 @@
 		<div class="menu_tab_content">
 			<ul class="nav nav-tabs">
 			  <li class="active"><a data-toggle="tab" href="#dshoatdong">Danh sách hoạt động</a></li>
-			  <li ><a data-toggle="tab" href="#dkhoatdong">Đăng ký hoạt động</a></li>
 			  <li ><a data-toggle="tab" href="#huyhoatdong">Hủy hoạt động</a></li>
 			</ul>
 			<div class="tab-content">
 			  <div id="dshoatdong" class="tab-pane fade in active">
+			  	<sql:query var="items" sql="SELECT TenHoatDong,ThoiGianBatDau,ThoiGianKetThuc,SoLuong,DiaDiem,DiemRL,DiemCTXH FROM hoatdong"/>
 			  	<table class="table">
 					<tr>
-						<th>STT</th>
 						<th>Tên hoạt động</th>
 						<th>Ngày bắt đầu</th>
 						<th>Ngày kết thúc</th>
 						<th>Số lượng</th>
-						<th>Điểm rèn luyện</th>
+						<th>Địa điểm</th>
+						<th>Điểm RL</th>
 						<th>Điểm CTXH</th>
 					</tr>
-					<tr>
-						<td>1</td>
-						<td>Vệ sinh trường</td>
-						<td>20/10/2016</td>
-						<td>25/10/2016</td>
-						<td>60</td>
-						<td>5</td>
-						<td>5</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>Chủ nhật xanh</td>
-						<td>22/11/2016</td>
-						<td>22/11/2016</td>
-						<td>120</td>
-						<td>5</td>
-						<td>5</td>
-					</tr>
+					<c:forEach var="row" items="">
+						<tr>
+							<td><c:out value=""/></td>
+							<td><c:out value=""/></td>
+							<td><c:out value=""/></td>
+							<td><c:out value=""/></td>
+							<td><c:out value=""/></td>
+							<td><c:out value=""/></td>
+							<td><c:out value=""/></td>
+						</tr>
+					</c:forEach>
 			  	</table>
-			  </div>
-			  <div id="dkhoatdong" class="tab-pane fade ">
-			  	<table class="table">
-					<tr>
-						<th></th>
-						<th>STT</th>
-						<th>Tên hoạt động</th>
-						<th>Ngày bắt đầu</th>
-						<th>Ngày kết thúc</th>
-						<th>Số lượng</th>
-						<th>Điểm rèn luyện</th>
-						<th>Điểm CTXH</th>
-					</tr>
-					<tr>
-						<td><input type="checkbox"></td>
-						<td>1</td>
-						<td>Vệ sinh trường</td>
-						<td>20/10/2016</td>
-						<td>25/10/2016</td>
-						<td>60</td>
-						<td>5</td>
-						<td>5</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox"></td>
-						<td>2</td>
-						<td>Chủ nhật xanh</td>
-						<td>22/11/2016</td>
-						<td>22/11/2016</td>
-						<td>120</td>
-						<td>5</td>
-						<td>5</td>
-					</tr>
-			  	</table>
-			  	<div class="btndk">
-			  		<button class="btn btn-info" type="button" id="btnShowModal_dk">Đăng ký</button>
+			  	<div class="btnxemchitiett">
+			  		<button class="btn btn-info" type="button" id="btnxemchitiet">Xem chi tiết</button>
 			  	</div>
 			  </div>
 			  <div id="huyhoatdong" class="tab-pane fade ">
-			  <table class="table">
-					<tr>
-						<th></th>
-						<th>STT</th>
-						<th>Tên hoạt động</th>
-						<th>Ngày bắt đầu</th>
-						<th>Ngày kết thúc</th>
-						<th>Số lượng</th>
-						<th>Điểm rèn luyện</th>
-						<th>Điểm CTXH</th>
-					</tr>
-					<tr>
-						<td><input type="checkbox"></td>
-						<td>1</td>
-						<td>Vệ sinh trường</td>
-						<td>20/10/2016</td>
-						<td>25/10/2016</td>
-						<td>60</td>
-						<td>5</td>
-						<td>5</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox"></td>
-						<td>2</td>
-						<td>Chủ nhật xanh</td>
-						<td>22/11/2016</td>
-						<td>22/11/2016</td>
-						<td>120</td>
-						<td>5</td>
-						<td>5</td>
-					</tr>
-			  	</table>
+				  <sql:query var="items" sql="SELECT TenHoatDong,ThoiGianBatDau,ThoiGianKetThuc,SoLuong,DiaDiem,DiemRL,DiemCTXH FROM hoatdong"/>
+				  	<table class="table">
+						<tr>
+							<th>Tên hoạt động</th>
+							<th>Ngày bắt đầu</th>
+							<th>Ngày kết thúc</th>
+							<th>Số lượng</th>
+							<th>Địa điểm</th>
+							<th>Điểm RL</th>
+							<th>Điểm CTXH</th>
+						</tr>
+						<c:forEach var="row" items="">
+							<tr>
+								<td><c:out value=""/></td>
+								<td><c:out value=""/></td>
+								<td><c:out value=""/></td>
+								<td><c:out value=""/></td>
+								<td><c:out value=""/></td>
+								<td><c:out value=""/></td>
+								<td><c:out value=""/></td>
+							</tr>
+						</c:forEach>
+				  	</table>
 			  	<div class="btnhuy">
 			  		<button class="btn btn-info" type="button" id="btnShowModal_huydk" data-target="#loginModal">Hủy đăng ký</button>
 			  	</div>

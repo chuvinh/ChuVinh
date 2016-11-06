@@ -1,5 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,6 +19,7 @@
   	</style>
 </head>
 <body>
+	<sql:setDataSource driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3307/qlhdd" user="root" password="12345678"/>
 	<div class="containt">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		  <ol class="carousel-indicators">
@@ -56,7 +60,8 @@
 										<input name="doanvien" type="radio" value="cbdoantruong" id="check_cbdt" />Cán bộ đoàn trưởng
 										<input name="doanvien" type="radio" value="admin" id="check_admin" />Admin
 									</form>
-									<form class="form-horizontal">
+									<form class="form-horizontal" method="post">
+									<sql:query var="items" sql="SELECT * FROM users"/>
 						              	<div class="form-group">
 						                	<label class="control-label col-md-7 " style="text-align: left; margin-bottom: 5px;">Tên đăng nhập:</label>
 						                	<div class="col-md-12">
@@ -69,6 +74,10 @@
 							                  	<input type="password" class="form-control" placeholder="Enter Password " id="inputPassword">
 							                </div>
 						              	</div>
+						             <%
+						             	String name =request.getParameter("inputUsername");
+						             	String pass =request.getParameter("inputPassword");
+						             %>
 						          	</form>
 								</div>
 								<div class="modal-footer">

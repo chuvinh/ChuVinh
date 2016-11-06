@@ -20,6 +20,7 @@
   	</style>
 </head>
 <body>
+	<sql:setDataSource driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3307/qlhdd" user="root" password="12345678"/>
 	<div class="containt">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		  <ol class="carousel-indicators">
@@ -65,22 +66,22 @@
 			<div class="tab-content">
 			 	<div id="dstinnhan" class="tab-pane fade in active">
 					<div class="col-md-12">
-						<table class="table">
+						<sql:query var="items" sql="SELECT TenDV,TieuDe,NoiDung FROM tinnhan inner join gui on tinnhan.MaTn=gui.MaTn
+			 									inner join doanvien on doanvien.MSSV=gui.MaNguoiGui"/>
+					  	<table class="table">
 							<tr>
-								<th></th>
-								<th>STT</th>
-								<th>Tên tin nhắn</th>
-								<th>Người gửi</th>
-								<th>Nội dung</th>
+							   <th>Người gửi</th>
+							   <th>Tiêu Đề</th>
+							   <th>Nội Dung</th>
 							</tr>
+							<c:forEach var="row" items="">
 							<tr>
-								<td><input type="checkbox"></td>
-								<td>1</td>
-								<td>Cập nhật điểm CTXH</td>
-								<td>Lê Văn Vịnh</td>
-								<td>Điểm CTXH của em vẫn chưa được cập nhật ạ.</td>
+							   <td><c:out value=""/></td>
+							   <td><c:out value=""/></td>
+							   <td><c:out value=""/></td>
 							</tr>
-						 </table>
+							</c:forEach>
+						</table>
 						 <a href="cbdoankhoa_xemtnchitiet.html"><button class="btn btn-info" type="button" id="btnShowModal_xemtnct">Xem chi tiết</button></a>
 					</div>
 			 	</div>

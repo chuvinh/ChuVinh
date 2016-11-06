@@ -6,9 +6,9 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Quản lý hoạt động đoàn</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
     <script src="jquery/jquery.min.js"></script>
   	<script src="bootstrap/js/bootstrap.min.js"></script>
+  	<link href="css/style.css" rel="stylesheet">
   	<style>
 	  .carousel-inner > .item > img,
 	  .carousel-inner > .item > a > img {
@@ -51,6 +51,7 @@
 				  <li><a href="doanvien_tracuu.jsp">Tra cứu</a></li>
 				  <li><a href="doanvien_tinnhan.jsp">Tin nhắn</a></li>
 				  <li><a href="doanvien_xemdiem.jsp">Xem điểm</a></li>
+				  <li><a href="#">Thảo luận</a></li>
 				  <li><a href="trangchu.jsp">Đăng xuất</a></li>
 		        </ul>
 		    </div>

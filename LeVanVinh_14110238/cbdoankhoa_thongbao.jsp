@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -17,6 +18,7 @@
   	</style>
 </head>
 <body>
+	<sql:setDataSource driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3307/qlhdd" user="root" password="12345678"/>
 	<div class="containt">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		  <ol class="carousel-indicators">
@@ -64,24 +66,19 @@
 			<div class="tab-content">
 			 	<div id="dsthongbao" class="tab-pane fade in active">
 					<div class="col-md-12">
-						<table class="table">
-							<tr>
-								<th></th>
-								<th>STT</th>
-								<th>Tên thông báo</th>
-								<th>Trích đoạn</th>
-								<th>Nội dung thông báo</th>
-								<th>Insert hình</th>
-							</tr>
-							<tr>
-								<td><input type="checkbox"></td>
-								<td>1</td>
-								<td>Mùa hè xanh</td>
-								<td>Bản tin số...</td>
-								<td>Đội hình đã cố gắng kịp thời cập nhật thông tin để đưa đến các quý thầy cô các bạn đồng chí những thông tin nóng nhất mới nhất về các mặt trận Mùa Hè Xanh 2016.</td>
-								<td></td>
-							</tr>
-						 </table>
+						<sql:query var="items" sql="SELECT TieuDe,NoiDung FROM thongbao"/>
+						  	<table class="table">
+								<tr>
+									<th>Tiêu đề</th>
+									<th>Nội dung</th>
+								</tr>
+								<c:forEach var="row" items="">
+									<tr>
+										<td><c:out value=""/></td>
+										<td><c:out value=""/></td>
+									</tr>
+								</c:forEach>
+							</table>
 					</div>
 			 	</div>
 			 	<div id="themthongbao" class="tab-pane fade">

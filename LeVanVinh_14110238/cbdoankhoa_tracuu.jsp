@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -17,6 +18,7 @@
   	</style>
 </head>
 <body>
+	<sql:setDataSource driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3307/qlhdd" user="root" password="12345678"/>
 	<div class="containt">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		  <ol class="carousel-indicators">
@@ -60,29 +62,32 @@
 			</ul>
 			<div class="tab-content">
 			 	<div id="dsdoanvien" class="tab-pane fade in active">
-					<div class="col-md-12">
-						<table class="table">
+					<sql:query var="items" sql="SELECT MSSV,TenDV,NgaySinh,GioiTinh,Email,Sdt FROM doanvien inner join chucvu on chucvu.MaChucVu=doanvien.MaChucVu"/>
+					  	<table class="table">
 							<tr>
-								<th></th>
 								<th>MSSV</th>
-								<th>Tên đoàn viên</th>
-								<th>Ngày sinh</th>
-								<th>Khoa</th>
+								<th>Tên Đoàn Viên</th>
+								<th>Ngày Sinh</th>
+								<th>Giới Tính<th>
+								<th>Email</th>
+								<th>Sdt</th>
 							</tr>
-							<tr>
-								<td><input type="checkbox"></td>
-								<td>14110238</td>
-								<td>Lê Văn Vịnh</td>
-								<td>15/03/1996</td>
-								<td>CNTT</td>
-							</tr>
-						 </table>
+							<c:forEach var="row" items="">
+								<tr>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+								</tr>
+							</c:forEach>
+						</table>
 						 <a href="cbdoankhoa_tracuuchitiet.jsp"><button class="btn btn-info" type="button" id="btnShowModal_xemct">Xem chi tiết</button></a>
 					</div>
 			 	</div>
 			</div>
 		</div>
-	</div>
 
 </body>
 </html>

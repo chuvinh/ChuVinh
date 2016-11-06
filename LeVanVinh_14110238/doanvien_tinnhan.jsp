@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -17,6 +18,7 @@
   	</style>
 </head>
 <body>
+	<sql:setDataSource driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3307/qlhdd" user="root" password="12345678"/>
 	<div class="containt">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		  <ol class="carousel-indicators">
@@ -51,6 +53,7 @@
 				  <li><a href="doanvien_tracuu.jsp">Tra cứu</a></li>
 				  <li><a href="doanvien_tinnhan.jsp">Tin nhắn</a></li>
 				  <li><a href="doanvien_xemdiem.jsp">Xem điểm</a></li>
+				  <li><a href="#">Thảo luận</a></li>
 				  <li><a href="trangchu.jsp">Đăng xuất</a></li>
 		        </ul>
 		    </div>
@@ -62,20 +65,22 @@
 			</ul>
 			<div class="tab-content">
 			 	<div id="dstinnhan" class="tab-pane fade in active">
-			 		<table class="table">
-					<tr>
-						<th>STT</th>
-						<th>Tên tin nhắn</th>
-						<th>Người gửi</th>
-						<th>Nội dung</th>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>Cập nhật điểm CTXH</td>
-						<td>Cán bộ đoàn khoa</td>
-						<td>Đã cập nhật lại điểm CTXH, mời các em vào kiểm tra lại.</td>
-					</tr>
-				 </table>
+			 		<sql:query var="items" sql="SELECT TenDV,TieuDe,NoiDung FROM tinnhan inner join gui on tinnhan.MaTn=gui.MaTn
+			 									inner join doanvien on doanvien.MSSV=gui.MaNguoiGui"/>
+					  	<table class="table">
+							<tr>
+							   <th>Người gửi</th>
+							   <th>Tiêu Đề</th>
+							   <th>Nội Dung</th>
+							</tr>
+							<c:forEach var="row" items="">
+							<tr>
+							   <td><c:out value=""/></td>
+							   <td><c:out value=""/></td>
+							   <td><c:out value=""/></td>
+							</tr>
+							</c:forEach>
+						</table>
 			 		<div class="btncapnhattinnhan">
 						<button class="btn btn-info" id="capnhattinnhan">Refesh</button>
 					</div>

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,6 +20,7 @@
   	</style>
 </head>
 <body>
+	<sql:setDataSource driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3307/qlhdd" user="root" password="12345678"/>
 	<div class="containt">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		  <ol class="carousel-indicators">
@@ -51,47 +55,46 @@
 				  <li><a href="doanvien_tracuu.jsp">Tra cứu</a></li>
 				  <li><a href="doanvien_tinnhan.jsp">Tin nhắn</a></li>
 				  <li><a href="doanvien_xemdiem.jsp">Xem điểm</a></li>
+				  <li><a href="#">Thảo luận</a></li>
 				  <li><a href="trangchu.jsp">Đăng xuất</a></li>
 		        </ul>
 		    </div>
     	</nav>
 		<div class="menu_tab_content">
-					<ul class="nav nav-tabs">
+		<ul class="nav nav-tabs">
 		  <li class="active"><a data-toggle="tab" href="#xemtt_dv">Thông tin cá nhân</a></li>
 		  <li ><a data-toggle="tab" href="#capnhattt_dv">Cập nhật thông tin</a></li>
 		</ul>
 		<div class="tab-content">
 		  <div id="xemtt_dv" class="tab-pane fade in active">
+		  	<sql:query var="items" sql="SELECT MSSV,TenDV,NgaySinh,GioiTinh,Email,Sdt FROM doanvien"/>
 		  	<table class="table">
+				<tr>
+					<th>MSSV</th>
+					<th>Tên Đoàn Viên</th>
+					<th>Ngày Sinh</th>
+					<th>Giới Tính<th>
+					<th>Email</th>
+					<th>Sdt</th>
+				</tr>
+				<c:forEach var="row" items="">
 					<tr>
-						<th>MSSV</th>
-						<th>Tên đoàn viên</th>
-						<th>Ngày sinh</th>
-						<th>Giới tính</th>
-						<th>CMND</th>
-						<th>Khoa</th>
-						<th>Lớp</th>
-						<th>Ngày vào đoàn</th>
-						<th>Địa chỉ</th>
-						<th>Chức vụ</th>
+						<td><c:out value=""/></td>
+						<td><c:out value=""/></td>
+						<td><c:out value=""/></td>
+						<td><c:out value=""/></td>
+						<td><c:out value=""/></td>
+						<td><c:out value=""/></td>
 					</tr>
-					<tr>
-						<td>14110238</td>
-						<td>Lê Văn Vịnh</td>
-						<td>15/03/1996</td>
-						<td>Nam</td>
-						<td>221421105</td>
-						<td>CNTT</td>
-						<td>141101C</td>
-						<td>2013</td>
-						<td>Lê Văn Việt, Quận 9</td>
-						<td>Đoàn viên</td>
-					</tr>
-			 </table>
+				</c:forEach>
+			</table>
+			<div class="btnxemchitiet">
+				<button class="btn btn-info" type="button" id="btnShowModal_xemchitiet">Xem chi tiết</button>
+			</div>
 		  </div>
 		  <div id="capnhattt_dv" class="tab-pane fade ">
 		 	<div class="col-md-4">
-		 		<form>
+		 		<form method="POST">
 				  	<div class="form-group">
 				  		<label>MSSV:</label>
 				  		<input type="text" class="form-control" id="MSSV" placeholder="Enter MSSV">
@@ -105,40 +108,53 @@
 				  		<input type="date" class="form-control" id="ngaysinh" placeholder="Enter BirthDay">
 				  	</div>
 				  	<div class="form-group">
-				  		<label>Giới tính:</label>
-				  		<input type="text" class="form-control" id="gioitinh" placeholder="Enter Sex">
+				  		<label>Email:</label>
+				  		<input type="text" class="form-control" id="email" placeholder="Enter Email">
 				  	</div>
 				  	<div class="form-group">
-				  		<label>CMND:</label>
-				  		<input type="text" class="form-control" id="CMND" placeholder="Enter CMND">
+				  		<label>SĐT:</label>
+				  		<input type="text" class="form-control" id="sdt" placeholder="Enter Phone Number">
+				  	</div>
+				  	<div class="form-group">
+				  		<label>Ngày vào đoàn:</label>
+				  		<input type="text" class="form-control" id="ngayvaodoan" placeholder="Enter Date">
 				  	</div>
 			  	</form>
+			  	
 		 	</div>
 			<div class="col-md-4">
 				<form>
 					<div class="form-group">
-			  		<label>Khoa:</label>
-			  		<input type="text" class="form-control" id="khoa" placeholder="Enter Dept">
+				  		<label>Giới tính:</label>
+				  		<input type="text" class="form-control" id="gioitinh" placeholder="Enter Dept">
 				  	</div>
 				  	<div class="form-group">
-				  		<label>Lớp: </label>
-				  		<input type="text" class="form-control" id="lop" placeholder="Enter Class">
+				  		<label>CMND: </label>
+				  		<input type="text" class="form-control" id="CMND" placeholder="Enter Class">
 				  	</div>
 				  	<div class="form-group">
-				  		<label>Ngày vào đoàn:</label>
-				  		<input type="date" class="form-control" id="ngayvaodoan" placeholder="Enter Date">
+				  		<label>Quê quán:</label>
+				  		<input type="date" class="form-control" id="quequan" placeholder="Enter Date">
+				  	</div>
+				  	<div class="form-group">
+				  		<label>Tôn giáo: </label>
+				  		<input type="text" class="form-control" id="tongiao" placeholder="Enter Address">
+				  	</div>
+				  	<div class="form-group">
+				  		<label>Dân tộc: </label>
+				  		<input type="text" class="form-control" id="dantoc" placeholder="Enter Address">
 				  	</div>
 				  	<div class="form-group">
 				  		<label>Địa chỉ: </label>
 				  		<input type="text" class="form-control" id="diachi" placeholder="Enter Address">
 				  	</div>
 				</form>
+			<div class="btncapnhat">
+				<button class="btn btn-info" type="button" id="btnShowModal_tracuu">Cập nhật</button>
+			</div>
 			</div>
 			<div class="col-md-4">
 				<img src="images/logo_spkt.jpg" alt="logo_spkt" width="300px" height="350px">
-			</div>
-			<div class="btncapnhat">
-				<button class="btn btn-info" type="button" id="btnShowModal_tracuu">Cập nhật</button>
 			</div>
 		  </div>
 		</div>		
@@ -172,11 +188,14 @@
 					validateText("MSSV")
 					validateText("namedv")
 					validateText("ngaysinh")
-					validateText("CMND")
-					validateText("gioitinh")
-					validateText("khoa")
-					validateText("lop")
+					validateText("email")
+					validateText("sdt")
 					validateText("ngayvaodoan")
+					validateText("gioitinh")
+					validateText("CMND")
+					validateText("quequan")
+					validateText("tongiao")
+					validateText("dantoc")
 					validateText("diachi")
 					if(!validateText("MSSV")){
 						return false;
@@ -187,19 +206,28 @@
 					if(!validateText("ngaysinh")){
 						return false;
 					}
-					if(!validateText("CMND")){
+					if(!validateText("email")){
+						return false;
+					}
+					if(!validateText("sdt")){
+						return false;
+					}
+					if(!validateText("ngayvaodoan")){
 						return false;
 					}
 					if(!validateText("gioitinh")){
 						return false;
 					}
-					if(!validateText("khoa")){
+					if(!validateText("CMND")){
 						return false;
 					}
-					if(!validateText("lop")){
+					if(!validateText("quequan")){
 						return false;
 					}
-					if(!validateText("ngayvaodoan")){
+					if(!validateText("tongiao")){
+						return false;
+					}
+					if(!validateText("dantoc")){
 						return false;
 					}
 					if(!validateText("diachi")){

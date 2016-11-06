@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -17,6 +18,7 @@
   	</style>
 </head>
 <body>
+	<sql:setDataSource driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3307/qlhdd" user="root" password="12345678"/>
 	<div class="containt">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		  <ol class="carousel-indicators">
@@ -62,31 +64,20 @@
 			<div class="tab-content">
 			 	<div id="dschidoan" class="tab-pane fade in active">
 					<div class="col-md-12">
+						<sql:query var="items" sql="SELECT TenChiDoan,Khoa,SoLuongDV FROM ChiDoan"/>
 						<table class="table">
 							<tr>
 								<th>Tên chi đoàn</th>
-								<th>Tên cán bộ</th>
-								<th>Số điện thoại</th>
-								<th>Email</th>
+								<th>Khoa</th>
+								<th>Số lượng đoàn viên</th>
 							</tr>
-							<tr>
-								<td>141101</td>
-								<td>Nguyễn B</td>
-								<td>012345678</td>
-								<td>nb@gmail.com</td>
-							</tr>
-							<tr>
-								<td>141102</td>
-								<td>Trần A</td>
-								<td>090920312</td>
-								<td>ta@gmail.com</td>
-							</tr>
-							<tr>
-								<td>141103</td>
-								<td>Trà T</td>
-								<td>09283712</td>
-								<td>tt@gmail.com</td>
-							</tr>
+							<c:forEach var="row" items="">
+								<tr>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+									<td><c:out value=""/></td>
+								</tr>
+							</c:forEach>
 						 </table>
 					</div>
 			 	</div>
