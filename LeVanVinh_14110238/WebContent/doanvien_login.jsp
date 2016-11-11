@@ -52,6 +52,15 @@
 				  <li><a href="doanvien_tinnhan.jsp">Tin nhắn</a></li>
 				  <li><a href="doanvien_xemdiem.jsp">Xem điểm</a></li>
 				  <li><a href="thaoluan.jsp">Thảo luận</a></li>
+				<%
+					if(session.getAttribute("username")!=null && session.getAttribute("username")!="")
+					{
+					String user = session.getAttribute("username").toString();
+				%>
+					<li><a>Welcome, <%= user%></a></li>
+				<%
+				} 
+				%>
 				  <li><a href="trangchu.jsp">Đăng xuất</a></li>
 		        </ul>
 		    </div>
