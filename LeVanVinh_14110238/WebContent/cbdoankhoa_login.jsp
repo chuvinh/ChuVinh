@@ -50,6 +50,15 @@
 					<li><a href="cbdoankhoa_hoatdong.jsp">Hoạt động</a></li>
 					<li><a href="cbdoankhoa_tracuu.jsp">Tra cứu</a></li>
 					<li><a href="cbdoankhoa_tinnhan.jsp">Tin nhắn</a></li>
+					<%
+						if(session.getAttribute("username")!=null && session.getAttribute("username")!="")
+						{
+							String user = session.getAttribute("username").toString();
+					%>
+							<li><a>Welcome, <%= user%></a></li>
+					<%
+						} 
+					%>
 					<li><a href="trangchu.jsp">Đăng xuất</a></li>
 		        </ul>
 		    </div>
@@ -63,16 +72,19 @@
 						<img src="images/chibi.png">
 					</div>
 					<div class="col-lg-9">
-						<h3>Chào mừng bạn đến với Hệ thống Quản lý hoạt động đoàn sinh viên!</h3>
+					<%
+						if(session.getAttribute("username")!=null && session.getAttribute("username")!="")
+						{
+						String user = session.getAttribute("username").toString();
+					%>
+						<h3>Chào mừng <%= user%> 
+					<%
+						} 
+					%>  đến với Hệ thống Quản lý hoạt động đoàn sinh viên!</h3>
 						Chúng tôi mong rằng hệ thống sẽ giúp bạn tiếp cận gần hơn với các hoạt động đoàn tại trường, cũng như cải thiện chất lượng hoạt động trong các tổ chức Đoàn - Hội của trường Đại học SPKT TP.HCM.
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="navbar navbar-default navbar-fixed-bottom">
-			<p class="navbar-text navbar-center">Đoàn trường Đại học Sư Phạm Kỹ Thuật TP Hồ Chí Minh</p>
-			<p class="navbar-text">Design by: Vịnh</p>
-		</div>
-	</div>
 </body>
 </html>

@@ -81,85 +81,85 @@
 				<tr>
 					<c:forEach items="${row}" var="col">
 						<td>${col}</td>
-					</c:forEach>							
+					</c:forEach>					
 				</tr>
 					</c:forEach>
 			</table>
 			<div class="btnxemchitiet">
-				<button class="btn btn-info" type="button" id="btnShowModal_xemchitiet">Xem chi tiết</button>
-			</div>
-		  </div>
-		  <div id="capnhattt_dv" class="tab-pane fade ">
-		 	<div class="col-md-4">
-		 		<form method="POST">
-				  	<div class="form-group">
-				  		<label>MSSV:</label>
-				  		<input type="text" class="form-control" id="MSSV" placeholder="Enter MSSV">
-				  	</div>
-				  	<div class="form-group">
-				  		<label>Tên đoàn viên:</label>
-				  		<input type="text" class="form-control" id="namedv" placeholder="Enter Name">
-				  	</div>
-				  	<div class="form-group">
-				  		<label>Ngày sinh:</label>
-				  		<input type="date" class="form-control" id="ngaysinh" placeholder="Enter BirthDay">
-				  	</div>
-				  	<div class="form-group">
-				  		<label>Email:</label>
-				  		<input type="text" class="form-control" id="email" placeholder="Enter Email">
-				  	</div>
-				  	<div class="form-group">
-				  		<label>SĐT:</label>
-				  		<input type="text" class="form-control" id="sdt" placeholder="Enter Phone Number">
-				  	</div>
-				  	<div class="form-group">
-				  		<label>Ngày vào đoàn:</label>
-				  		<input type="text" class="form-control" id="ngayvaodoan" placeholder="Enter Date">
-				  	</div>
-			  	</form>
-			  	
-		 	</div>
-			<div class="col-md-4">
-				<form>
-					<div class="form-group">
-				  		<label>Giới tính:</label>
-				  		<input type="text" class="form-control" id="gioitinh" placeholder="Enter Dept">
-				  	</div>
-				  	<div class="form-group">
-				  		<label>CMND: </label>
-				  		<input type="text" class="form-control" id="CMND" placeholder="Enter Class">
-				  	</div>
-				  	<div class="form-group">
-				  		<label>Quê quán:</label>
-				  		<input type="date" class="form-control" id="quequan" placeholder="Enter Date">
-				  	</div>
-				  	<div class="form-group">
-				  		<label>Tôn giáo: </label>
-				  		<input type="text" class="form-control" id="tongiao" placeholder="Enter Address">
-				  	</div>
-				  	<div class="form-group">
-				  		<label>Dân tộc: </label>
-				  		<input type="text" class="form-control" id="dantoc" placeholder="Enter Address">
-				  	</div>
-				  	<div class="form-group">
-				  		<label>Địa chỉ: </label>
-				  		<input type="text" class="form-control" id="diachi" placeholder="Enter Address">
-				  	</div>
-				</form>
-			<div class="btncapnhat">
-				<button class="btn btn-info" type="button" id="btnShowModal_tracuu">Cập nhật</button>
-			</div>
-			</div>
-			<div class="col-md-4">
-				<img src="images/logo_spkt.jpg" alt="logo_spkt" width="300px" height="350px">
+				<button class="btn btn-success" data-target="#xemchitiet" data-toggle="modal">Xem chi tiết</button>
 			</div>
 		  </div>
 		</div>		
 		</div>
 	</div>
-	<div class="footer">
-		<div class="">Đây là footer.</div>
-	</div>
+	<div class="row">
+				<div class="">
+					<div class="modal" id="xemchitiet" tabindex="-1">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button class="close" data-dismiss="modal"></button>
+									<h4 class="modal-title">Login</h4>
+								</div>
+								<div class="modal-body">
+									<form method="POST">
+									  	<div class="form-group">
+									  		<label>MSSV:</label>
+									  		<input type="text" class="form-control" id="MSSV" placeholder="Enter MSSV">
+									  	</div>
+									  	<div class="form-group">
+									  		<label>Tên đoàn viên:</label>
+									  		<input type="text" class="form-control" id="namedv" placeholder="Enter Name">
+									  	</div>
+									  	<div class="form-group">
+									  		<label>Ngày sinh:</label>
+									  		<input type="date" class="form-control" id="ngaysinh" placeholder="Enter BirthDay">
+									  	</div>
+									  	<div class="form-group">
+									  		<label>Email:</label>
+									  		<input type="text" class="form-control" id="email" placeholder="Enter Email">
+									  	</div>
+									  	<div class="form-group">
+									  		<label>SĐT:</label>
+									  		<input type="text" class="form-control" id="sdt" placeholder="Enter Phone Number">
+									  	</div>
+									  	<div class="form-group">
+									  		<label>Ngày vào đoàn:</label>
+									  		<input type="text" class="form-control" id="ngayvaodoan" placeholder="Enter Date">
+									  	</div>
+										<div class="form-group">
+									  		<label>Giới tính:</label>
+									  		<input type="text" class="form-control" id="gioitinh" placeholder="Enter Dept">
+									  	</div>
+									  	<div class="form-group">
+									  		<label>CMND: </label>
+									  		<input type="text" class="form-control" id="CMND" placeholder="Enter Class">
+									  	</div>
+									  	<div class="form-group">
+									  		<label>Quê quán:</label>
+									  		<input type="date" class="form-control" id="quequan" placeholder="Enter Date">
+									  	</div>
+									  	<div class="form-group">
+									  		<label>Tôn giáo: </label>
+									  		<input type="text" class="form-control" id="tongiao" placeholder="Enter Address">
+									  	</div>
+									  	<div class="form-group">
+									  		<label>Dân tộc: </label>
+									  		<input type="text" class="form-control" id="dantoc" placeholder="Enter Address">
+									  	</div>
+									  	<div class="form-group">
+									  		<label>Địa chỉ: </label>
+									  		<input type="text" class="form-control" id="diachi" placeholder="Enter Address">
+									  	</div>
+									<button type="submit" class="btn btn-success" id="btnShowModal_tracuu">Login</button>
+									<button type="submit" class="btn btn-default" id="btnHideModal">Cancel</button>
+								</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 	<script type="text/javascript">
 		function validateText(id)
 		{

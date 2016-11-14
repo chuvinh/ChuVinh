@@ -48,30 +48,48 @@ public class login extends HttpServlet {
 			  {
 				  username = request.getParameter("username").toString();
 				  userpass = request.getParameter("password").toString();
-				  strQuery="select Username,Pass from users where Username='"+username+"' and  Pass='"+userpass+"'";
+				  strQuery="select * from users where Username='"+username+"' and  Pass='"+userpass+"'";
 				  System.out.println(strQuery);
 				  st = (Statement) conn.createStatement();
 				  rs = st.executeQuery(strQuery);
 				  int count=0;
+				  String role="";
 				  while(rs.next())
 				  {
 					  session.setAttribute("username",rs.getString(1));
+					  role =rs.getString("Roleid");
 					  count=count+1;
 				  }
-				  if(count>0)
+				  System.out.println(role);
+				  System.out.println(count);
+				  if(count>0 && role.equals("dv"))
 				  {
 					  response.sendRedirect("doanvien_login.jsp");
 				  }
-				  else
-				  {
-					  out.print("Sorry, username or password error!!!");
-					  request.getRequestDispatcher("trangchu.jsp").include(request, response);
+				  else{
+					  if(count>0 && role.equals("ad"))
+					  {
+						  response.sendRedirect("admin_login.jsp");
+					  }
+					  else{
+						  if(count>0 && role.equals("cbdk"))
+						  {
+							  response.sendRedirect("cbdoankhoa_login.jsp");
+						  }
+						  else{
+							  if(count>0 && role.equals("cbdt"))
+							  {
+								  response.sendRedirect("cbdoantruong_login.jsp");
+							  }
+							  else{
+								  out.print("Sorry, username or password error!!!");
+								  request.getRequestDispatcher("trangchu.jsp").include(request, response);
+							  }
+						  }
+					  }
 				  }
 			  }
-			  else
-			  {
-				  response.sendRedirect("trangchu.jsp");
-			  }
+
 			  System.out.println("Connected to the database"); 
 			  conn.close();
 			  System.out.println("Disconnected from database");
