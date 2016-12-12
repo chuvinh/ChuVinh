@@ -51,7 +51,7 @@
 									<h4 class="modal-title">Login</h4>
 								</div>
 								<div class="modal-body">
-									<form class="form-horizontal" name="loginform" method="post" action="loginbean.jsp">
+									<form class="form-horizontal" action="loginbean.jsp" method="post">
 						              	<div class="form-group">
 						                	<label class="control-label col-md-7 " style="text-align: left; margin-bottom: 5px;">Tên đăng nhập:</label>
 						                	<div class="col-md-12">
@@ -132,5 +132,39 @@
 			}
 		);
       </script>
+      <script>
+		$(document).ready(
+				function() {
+					$("#loginform").submit(function(evt) {
+						evt.preventDefault();
+
+						var username = $("#inputUsername").val();
+						var password = $("#inputPassword").val();
+
+						var data = {
+							a : username,
+							b : password
+						};
+
+						$.post("loginservlet", data).done(function(text) {
+
+							if (text === "dv") {
+								window.location.href = "doanvien_login.jsp";
+							} else {
+								if (text === "cbdk")
+									window.location.href = "cbdoankhoa_login.jsp";
+								else{
+									if (text === "cbdt")
+										window.location.href = "cbdoantruong_login.jsp";
+									else{
+										if (text === "ad")
+											window.location.href = "admin_login.jsp";
+									}
+								}
+							}
+						});
+					});
+				});
+		</script>
 </body>
 </html>

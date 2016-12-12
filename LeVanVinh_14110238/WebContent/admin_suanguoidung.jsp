@@ -1,3 +1,4 @@
+<%@page import="java.sql.ResultSet"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -45,7 +46,6 @@
 		<nav class="navbar navbar-inverse">
 		    <div class="container-fluid">
 		        <ul class="nav navbar-nav">
-		          	<li><a href="admin_qltaikhoan.jsp">Quản lý tài khoản</a></li>
 			  		<li class="active"><a href="admin_qlnguoidung.jsp">Quản lý người dùng</a></li>
 			  		<li><a href="trangchu.jsp">Đăng xuất</a></li>
 		        </ul>
@@ -53,240 +53,106 @@
     	</nav>
 		<div class="menu_tab_content">
 			<ul class="nav nav-tabs">
-			 	<li><a data-toggle="tab" href="#dsnguoidung">Danh sách người dùng</a></li>
-			 	<li><a data-toggle="tab" href="#themnguoidung">Thêm người dùng</a></li>
-			 	<li><a data-toggle="tab" href="#xoanguoidung">Xóa người dùng</a></li>
 			 	<li class="active"><a data-toggle="tab" href="#suanguoidung">Sửa thông tin người dùng</a></li>
-			</ul>
-			<div class="tab-content">
-			 	<div id="dsnguoidung" class="tab-pane fade">
-					<div class="col-md-12">
-						<table class="table">
-							<tr>
-								<th>MSSV</th>
-								<th>Tên</th>
-								<th>Giới tính</th>
-								<th>Ngày sinh</th>
-								<th>Email</th>
-								<th>CMND</th>
-								<th>Điện thoại</th>
-								<th>Lớp</th>
-								<th>Ngày vào đoàn</th>
-								<th>Địa chỉ</th>
-							</tr>
-							<tr>
-								<td>14110236</td>
-								<td>Lê Văn A</td>
-								<td>Nam</td>
-								<td>20/10/1996</td>
-								<td>la@gmail.com</td>
-								<td>221421103</td>
-								<td>01649293</td>
-								<td>CNTT</td>
-								<td>141102</td>
-								<td>2012</td>
-								<td>Thủ Đức</td>
-							</tr>
-							<tr>
-								<td>14110239</td>
-								<td>Nguyễn Thị B</td>
-								<td>Nữ</td>
-								<td>26/12/1996</td>
-								<td>nb@gmail.com</td>
-								<td>221421104</td>
-								<td>0928292</td>
-								<td>Điện</td>
-								<td>141103</td>
-								<td>2011</td>
-								<td>Thủ Đức</td>
-							</tr>
-							<tr>
-								<td>14110238</td>
-								<td>Lê Văn Vịnh</td>
-								<td>Nam</td>
-								<td>15/03/1996</td>
-								<td>lvv@gmail.com</td>
-								<td>221421105</td>
-								<td>01685699420</td>
-								<td>CNTT</td>
-								<td>141101</td>
-								<td>2013</td>
-								<td>Quận 9</td>
-							</tr>
-						 </table>
-					</div>
-			 	</div>
-			 	<div id="themnguoidung" class="tab-pane fade">
-			 		<div class="col-md-4">
-				 		<form>
-						  	<div class="form-group">
-						  		<label>MSSV:</label>
-						  		<input type="text" class="form-control" id="t_MSSV" placeholder="Enter MSSV">
-						  	</div>
-						  	<div class="form-group">
-						  		<label>Tên đoàn viên:</label>
-						  		<input type="text" class="form-control" id="t_namend" placeholder="Enter Name">
-						  	</div>
-						  	<div class="form-group">
-						  		<label>Ngày sinh:</label>
-						  		<input type="date" class="form-control" id="t_ngaysinh" placeholder="Enter Date">
-						  	</div>
-						  	<div class="form-group">
-								<label>CMND:</label>
-				 				<input type="text" class="form-control" id="t_CMND" placeholder="Enter CMND">
-						  	</div>
-						  	<div class="form-group">
-								<label>Giới tính:</label>
-				 				<input type="date" class="form-control" id="t_gioitinh" placeholder="Enter Sex">
-						  	</div>
-						  	<div class="form-group">
-						  		<label>Email:</label>
-						  		<input type="text" class="form-control" id="t_email" placeholder="Enter Email">
-						  	</div>
-					</div>
-					<div class="col-md-4">
-						  	<div class="form-group">
-						  		<label>Số điện thoại:</label>
-						  		<input type="text" class="form-control" id="t_sdt" placeholder="Enter Number">
-						  	</div>
-						  	<div class="form-group">
-						  		<label>Khoa:</label>
-						  		<input type="text" class="form-control" id="t_khoa" placeholder="Enter Dept">
-						  	</div>
-						  	<div class="form-group">
-						  		<label>Lớp:</label>
-				 				<input type="text" class="form-control" id="t_lop" placeholder="Enter Class">
-						  	</div>
-						  	<div class="form-group">
-						  		<label>Ngày vào đoàn:</label>
-				 				<input type="date" class="form-control" id="t_ngayvaodoan" placeholder="Enter Date">
-						  	</div>
-						  	<div class="form-group">
-						  		<label>Địa chỉ:</label>
-				 				<input type="text" class="form-control" id="t_diachi" placeholder="Enter Address">
-						  	</div>
-						  	<br><button class="btn btn-info" type="button" id="btnShowModal_themnd">Thêm người dùng</button>
-					  	</form>
-			 		</div>
-			 	</div>
-			 	<div id="xoanguoidung" class="tab-pane fade">
-					<div class="col-md-12">
-						<table class="table">
-							<tr>
-								<th></th>
-								<th>MSSV</th>
-								<th>Tên</th>
-								<th>Giới tính</th>
-								<th>Ngày sinh</th>
-								<th>Email</th>
-								<th>CMND</th>
-								<th>Điện thoại</th>
-								<th>Lớp</th>
-								<th>Ngày vào đoàn</th>
-								<th>Địa chỉ</th>
-							</tr>
-							<tr>
-								<td><input type="checkbox"></td>
-								<td>14110236</td>
-								<td>Lê Văn A</td>
-								<td>Nam</td>
-								<td>20/10/1996</td>
-								<td>la@gmail.com</td>
-								<td>221421103</td>
-								<td>01649293</td>
-								<td>CNTT</td>
-								<td>141102</td>
-								<td>2012</td>
-								<td>Thủ Đức</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox"></td>
-								<td>14110239</td>
-								<td>Nguyễn Thị B</td>
-								<td>Nữ</td>
-								<td>26/12/1996</td>
-								<td>nb@gmail.com</td>
-								<td>221421104</td>
-								<td>0928292</td>
-								<td>Điện</td>
-								<td>141103</td>
-								<td>2011</td>
-								<td>Thủ Đức</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox"></td>
-								<td>14110238</td>
-								<td>Lê Văn Vịnh</td>
-								<td>Nam</td>
-								<td>15/03/1996</td>
-								<td>lvv@gmail.com</td>
-								<td>221421105</td>
-								<td>01685699420</td>
-								<td>CNTT</td>
-								<td>141101</td>
-								<td>2013</td>
-								<td>Quận 9</td>
-							</tr>
-						 </table>
-					</div>
-					<div class="btnxoatb">
-						<button class="btn btn-info" type="button" id="btnShowModal_xoand">Xóa người dùng</button>
-					</div>
-			 	</div>
+			</ul>	
 			 	<div id="suanguoidung" class="tab-pane fade in active">
-			 		<div class="col-md-4">
-				 		<form role="form" id="contactform">
-						  	<div class="form-group">
-						  		<label>MSSV:</label>
-						  		<input type="text" class="form-control" id="s_MSSV" placeholder="Enter MSSV">
-						  	</div>
-						  	<div class="form-group">
-						  		<label>Tên đoàn viên:</label>
-						  		<input type="text" class="form-control" id="s_namend" placeholder="Enter Name">
-						  	</div>
-						  	<div class="form-group">
-						  		<label>Ngày sinh:</label>
-						  		<input type="date" class="form-control" id="s_ngaysinh" placeholder="Enter Date">
-						  	</div>
-						  	<div class="form-group">
-								<label>CMND:</label>
-				 				<input type="text" class="form-control" id="s_CMND" placeholder="Enter CMND">
-						  	</div>
-						  	<div class="form-group">
-								<label>Giới tính:</label>
-				 				<input type="date" class="form-control" id="s_gioitinh" placeholder="Enter Sex">
-						  	</div>
-						  	<div class="form-group">
-						  		<label>Email:</label>
-						  		<input type="text" class="form-control" id="s_email" placeholder="Enter Email">
-						  	</div>
-					</div>
-					<div class="col-md-4">
-						  	<div class="form-group">
-						  		<label>Số điện thoại:</label>
-						  		<input type="text" class="form-control" id="s_sdt" placeholder="Enter Number">
-						  	</div>
-						  	<div class="form-group">
-						  		<label>Khoa:</label>
-						  		<input type="text" class="form-control" id="s_khoa" placeholder="Enter Dept">
-						  	</div>
-						  	<div class="form-group">
-						  		<label>Lớp:</label>
-				 				<input type="text" class="form-control" id="s_lop" placeholder="Enter Class">
-						  	</div>
-						  	<div class="form-group">
-						  		<label>Ngày vào đoàn:</label>
-				 				<input type="date" class="form-control" id="s_ngayvaodoan" placeholder="Enter Date">
-						  	</div>
-						  	<div class="form-group">
-						  		<label>Địa chỉ:</label>
-				 				<input type="text" class="form-control" id="s_diachi" placeholder="Enter Address">
-						  	</div>
-						  	<br><button class="btn btn-info" type="button" id="btnShowModal_suand">Sửa người dùng</button>
+				 		<form role="form" id="contactform" action="suadoanvien">
+						  	<div class="col-md-6">
+						  	<% 
+								ResultSet rs=(ResultSet)request.getAttribute("listngdung");
+								while(rs.next()){
+							%>
+							<tr>
+								<td><label>MSSV:</label></td>
+								<td><input type="text" class="form-control" name="mssv"
+									placeholder="Enter MSSV" disabled="disabled" value="<%= rs.getString("MSSV")%>" required></td>
+							</tr>
+							<tr>
+								<td><label>Mật khẩu:</label></td>
+								<td><input type="password" class="form-control"
+									name="password" placeholder="Enter MSSV" value="<%= rs.getString("Pass")%>" required></td>
+							</tr>
+							<tr>
+								<td><label>Mã chi đoàn:</label></td>
+								<td><input type="text" class="form-control" name="tencd"
+									placeholder="Enter MSSV" value="<%= rs.getString("MaCD")%>" required></td>
+							</tr>
+							<tr>
+								<td><label>Tên đoàn viên:</label></td>
+								<td><input type="text" class="form-control" name="tendv"
+									placeholder="Enter Name" value="<%= rs.getString("Ten")%>" required></td>
+							</tr>
+							<tr>
+								<td><label>Ngày sinh:</label></td>
+								<td><input type="text" class="form-control" name="ngaysinh"
+									placeholder="Enter BirthDay" value="<%= rs.getString("NgaySinh")%>" required></td>
+							</tr>
+							<tr>
+								<td><label>Email:</label></td>
+								<td><input type="text" class="form-control" name="email"
+									placeholder="Enter Email" value="<%= rs.getString("Email")%>" required></td>
+							</tr>
+							<tr>
+								<td><label>SĐT:</label></td>
+								<td><input type="text" class="form-control" name="sdt"
+									placeholder="Enter Phone Number" value="<%= rs.getString("Sdt")%>" required></td>
+								<br>
+							</tr>
+						</div>
+						<div class="col-md-6">
+							<tr>
+								<td><label>Ngày vào đoàn:</label></td>
+								<td><input type="text" class="form-control"
+									name="ngayvaodoan" placeholder="Enter Date" value="<%= rs.getString("NgayVaoDoan")%>" required></td>
+							</tr>
+							<tr>
+								<td><label>Giới tính:</label></td>
+								<td><input type="text" class="form-control" name="gioitinh"
+									placeholder="Enter Sex" value="<%= rs.getString("GioiTinh")%>" required></td>
+							</tr>
+							<tr>
+								<td><label>CMND: </label></td>
+								<td><input type="text" class="form-control" name="cmnd"
+									placeholder="Enter CMND" value="<%= rs.getString("CMND")%>" required></td>
+							</tr>
+							<tr>
+								<td><label>Quê quán:</label></td>
+								<td><input type="text" class="form-control" name="quequan"
+									placeholder="Enter QueQuan" value="<%= rs.getString("QueQuan")%>" required></td>
+							</tr>
+							<tr>
+								<td><label>Tôn giáo: </label></td>
+								<td><input type="text" class="form-control" name="tongiao"
+									placeholder="Enter TonGiao" value="<%= rs.getString("TonGiao")%>" required></td>
+							</tr>
+							<tr>
+								<td><label>Dân tộc: </label></td>
+								<td><input type="text" class="form-control" name="dantoc"
+									placeholder="Enter DanToc" value="<%= rs.getString("DanToc")%>" required></td>
+							</tr>
+							<tr>
+								<td><label>Địa chỉ: </label></td>
+								<td><input type="text" class="form-control" name="diachi"
+									placeholder="Enter Address" value="<%= rs.getString("DiaChi")%>" required></td>
+								<br>
+							</tr>
+						</div>
+						<% } %>
+						<br> <br>
+						<button class="btn btn-info" type="submit" name="sua">Sửa
+							người dùng</button>
 					  	</form>
 			 	</div>
 			 	</div>
 			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="footer-p">
+			Đoàn trường Đại học Sư Phạm Kỹ Thuật TP Hồ Chí Minh
+		</div>
+		<div class="footer-p" style="text-align: center;">
+			Design by: Vịnh
 		</div>
 	</div>
 	<script type="text/javascript">

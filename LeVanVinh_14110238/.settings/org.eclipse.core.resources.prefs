@@ -1,2 +1,9 @@
 eclipse.preferences.version=1
-encoding//WebContent/login.jsp=UTF-8
+encoding//src/Conn/dbcon.java=UTF-8
+encoding//src/servlet/dangkyhd.java=UTF-8
+encoding//src/servlet/soantinhan.java=UTF-8
+encoding//src/servlet/suadoanvien.java=UTF-8
+encoding//src/servlet/themchidoan.java=UTF-8
+encoding//src/servlet/themdv.java=UTF-8
+encoding//src/servlet/xoachidoan.java=UTF-8
+encoding//src/servlet/xoadoanvien.java=UTF-8

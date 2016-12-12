@@ -7,10 +7,44 @@
 	<title>Login</title>
 </head>
 <body>
-        <form method="post" action="loginbean.jsp">
-        Username:<input type="text" name="userName" /><br/>
-        Password:<input type="password" name="password" /><br/>
+        <form method="post" id="loginform" action="loginservlet">
+        Username:<input type="text" name="userName" id="inputUsername" /><br/>
+        Password:<input type="password" name="password" id="inputPassword"/><br/>
         <input type="submit" value="login" />
         </form>
-    </body>
+         <script>
+		$(document).ready(
+				function() {
+					$("#loginform").submit(function(evt) {
+						evt.preventDefault();
+
+						var username = $("#inputUsername").val();
+						var password = $("#inputPassword").val();
+
+						var data = {
+							a : username,
+							b : password
+						};
+
+						$.post("loginservlet", data).done(function(text) {
+
+							if (text === "dv") {
+								window.location.href = "doanvien_login.jsp";
+							} else {
+								if (text === "cbdk")
+									window.location.href = "cbdoankhoa_login.jsp";
+								else{
+									if (text === "cbdt")
+										window.location.href = "cbdoantruong_login.jsp";
+									else{
+										if (text === "ad")
+											window.location.href = "admin_login.jsp";
+									}
+								}
+							}
+						});
+					});
+				});
+		</script>
+</body>
 </html>

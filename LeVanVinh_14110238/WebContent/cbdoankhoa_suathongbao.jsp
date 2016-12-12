@@ -45,13 +45,23 @@
 		<nav class="navbar navbar-inverse">
 		    <div class="container-fluid">
 		        <ul class="nav navbar-nav">
-		          	<li><a href="cbdoankhoa_login.jsp">Trang chủ</a></li>
-					<li class="active"><a href="cbdoankhoa_thongbao.jsp">Thông báo</a></li>
-					<li><a href="cbdoankhoa_hoatdong.jsp">Hoạt động</a></li>
-					<li><a href="cbdoankhoa_tracuu.jsp">Tra cứu</a></li>
-					<li><a href="cbdoankhoa_tinnhan.jsp">Tin nhắn</a></li>
-					<li><a href="trangchu.jsp">Đăng xuất</a></li>
-		        </ul>
+				<% String mssv = session.getAttribute("username").toString(); %>
+				<li><a href="cbdoankhoa_login.jsp">Trang chủ</a></li>
+				<li class="active"><a href="selecttb">Thông báo</a></li>
+				<li><a href="selectcbdkhd">Hoạt động</a></li>
+				<li><a href="selectcbdkdv">Tra cứu</a></li>
+				<li><a href="selectcbdktinnhan?mssv=<%=mssv%>">Tin nhắn</a></li>
+				<%
+						if(session.getAttribute("username")!=null && session.getAttribute("username")!="")
+						{
+							String user = session.getAttribute("Ten").toString();
+					%>
+				<li><a>Welcome, <%= user%></a></li>
+				<%
+						} 
+					%>
+				<li><a href="trangchu.jsp">Đăng xuất</a></li>
+			</ul>
 		    </div>
     	</nav>
 		<div class="menu_tab_content">
@@ -158,7 +168,14 @@
 			</div>
 		</div>
 	</div>
-	
+	<div class="footer">
+		<div class="footer-p">
+			Đoàn trường Đại học Sư Phạm Kỹ Thuật TP Hồ Chí Minh
+		</div>
+		<div class="footer-p" style="text-align: center;">
+			Design by: Vịnh
+		</div>
+	</div>
 	<script type="text/javascript">
 		function validateText(id)
 		{

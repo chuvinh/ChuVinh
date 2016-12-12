@@ -45,21 +45,57 @@
 		<nav class="navbar navbar-inverse">
 		    <div class="container-fluid">
 		        <ul class="nav navbar-nav">
-		          	<li><a href="admin_qltaikhoan.jsp">Quản lý tài khoản</a></li>
-			  		<li><a href="admin_qlnguoidung.jsp">Quản lý người dùng</a></li>
+			  		<li><a href="listdoanvien">Quản lý người dùng</a></li>
 			  		<%
 					if(session.getAttribute("username")!=null && session.getAttribute("username")!="")
 					{
-						String user = session.getAttribute("username").toString();
+						String user = session.getAttribute("Ten").toString();
 						%>
 						<li><a>Welcome, <%= user%></a></li>
 					<%
 					} 
 					%>
-			  		<li><a href="trangchu.jsp">Đăng xuất</a></li>
+			  		<li><a href="#">Đăng xuất</a></li>
 		        </ul>
 		    </div>
     	</nav>
+	</div>
+	<marquee>Hệ thống quản lý hoạt động đoàn viên đại học SPKT
+		Tp.HCM</marquee>
+	<div class="menu_tab_content">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div class="col-lg-3">
+					<img src="images/chibi.png">
+				</div>
+				<div class="col-lg-9">
+					<%
+						if(session.getAttribute("username")!=null && session.getAttribute("username")!="")
+						{
+						String user = session.getAttribute("Ten").toString();
+					%>
+					<h3>
+						Chào mừng
+						<%= user%>
+						<%
+						} 
+					%>
+						đến với Hệ thống Quản lý hoạt động đoàn sinh viên!
+					</h3>
+					Chúng tôi mong rằng hệ thống sẽ giúp bạn tiếp cận gần hơn với các
+					hoạt động đoàn tại trường, cũng như cải thiện chất lượng hoạt động
+					trong các tổ chức Đoàn - Hội của trường Đại học SPKT TP.HCM.
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="footer-p">
+			Đoàn trường Đại học Sư Phạm Kỹ Thuật TP Hồ Chí Minh
+		</div>
+		<div class="footer-p" style="text-align: center;">
+			Design by: Vịnh
+		</div>
 	</div>
 </body>
 </html>

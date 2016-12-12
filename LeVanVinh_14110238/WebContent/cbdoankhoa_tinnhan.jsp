@@ -1,3 +1,4 @@
+<%@page import="java.sql.ResultSet"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -20,7 +21,6 @@
   	</style>
 </head>
 <body>
-	<sql:setDataSource driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3307/qlhdd" user="root" password="12345678"/>
 	<div class="containt">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		  <ol class="carousel-indicators">
@@ -49,13 +49,23 @@
 		<nav class="navbar navbar-inverse">
 		    <div class="container-fluid">
 		        <ul class="nav navbar-nav">
-		          	<li><a href="cbdoankhoa_login.jsp">Trang chủ</a></li>
-					<li><a href="cbdoankhoa_thongbao.jsp">Thông báo</a></li>
-					<li><a href="cbdoankhoa_hoatdong.jsp">Hoạt động</a></li>
-					<li><a href="cbdoankhoa_tracuu.jsp">Tra cứu</a></li>
-					<li class="active"><a href="cbdoankhoa_tinnhan.jsp">Tin nhắn</a></li>
-					<li><a href="trangchu.jsp">Đăng xuất</a></li>
-		        </ul>
+				<% String mssv = session.getAttribute("username").toString(); %>
+				<li><a href="cbdoankhoa_login.jsp">Trang chủ</a></li>
+				<li><a href="selecttb">Thông báo</a></li>
+				<li><a href="selectcbdkhd">Hoạt động</a></li>
+				<li><a href="selectcbdkdv">Tra cứu</a></li>
+				<li class="active"><a href="selectcbdktinnhan?mssv=<%=mssv%>">Tin nhắn</a></li>
+				<%
+						if(session.getAttribute("username")!=null && session.getAttribute("username")!="")
+						{
+							String user = session.getAttribute("Ten").toString();
+					%>
+				<li><a>Welcome, <%= user%></a></li>
+				<%
+						} 
+					%>
+				<li><a href="trangchu.jsp">Đăng xuất</a></li>
+			</ul>
 		    </div>
     	</nav>
 		<div class="menu_tab_content">
@@ -66,49 +76,59 @@
 			<div class="tab-content">
 			 	<div id="dstinnhan" class="tab-pane fade in active">
 					<div class="col-md-12">
-						<sql:query var="items" sql="SELECT TenDV,TieuDe,NoiDung FROM tinnhan inner join gui on tinnhan.MaTn=gui.MaTn
-			 									inner join doanvien on doanvien.MSSV=gui.MaNguoiGui"/>
 					  	<table class="table">
 							<tr>
-							   <th>Người gửi</th>
-							   <th>Tiêu Đề</th>
-							   <th>Nội Dung</th>
-							</tr>
-							<c:forEach var="row" items="">
-							<tr>
-							   <td><c:out value=""/></td>
-							   <td><c:out value=""/></td>
-							   <td><c:out value=""/></td>
-							</tr>
-							</c:forEach>
-						</table>
-						 <a href="cbdoankhoa_xemtnchitiet.html"><button class="btn btn-info" type="button" id="btnShowModal_xemtnct">Xem chi tiết</button></a>
+							<th>Người gửi</th>
+							<th>Tiêu Đề</th>
+							<th>Nội Dung</th>
+							<th></th>
+						</tr>
+						<% 
+								ResultSet rs=(ResultSet)request.getAttribute("listtn");
+								while(rs.next()){
+							%>
+						<tr>
+							<td><%= rs.getString("MaNguoiGui") %></td>
+							<td><%= rs.getString("TieuDe") %></td>
+							<td><%= rs.getString("NoiDung") %></td>
+							<td><a href="cbdk_traloi.jsp?magui=<%= rs.getString("MaNguoiGui") %>&manhan=<%=mssv%>"><button type="button"
+										class="btn btn-info">Trả lời</button></a></td>
+						</tr>
+						<% } %>
+					</table>
 					</div>
 			 	</div>
 			 	<div id="guitinnhan" class="tab-pane fade">
 			 		<div class="col-md-8">
-			 			<form>
-			 				<div class="form-group">
-					 			<label>Người nhận:</label>
-					 			<input type="text" class="form-control" id="nguoinhan" placeholder="To">
-				 			</div>
-				 			<div class="form-group">
-					 			<label>Tiêu đề:</label>
-					 			<input type="text" class="form-control" id="tieude" placeholder="Enter Subject">
-					 		</div>
-					 		<div class="form-group">
-					 			<label>Email:</label>
-					 			<input type="text" class="form-control" id="email" placeholder="Enter Email">
-					 		</div>
-					 		<div class="form-group">
-					 			<label>Nội dung:</label>
-					 			<textarea rows="5" cols="50" name="description" id="noidung" class="form-control" placeholder="Enter Content"></textarea>
-					 		</div>
-				 			<button class="btn btn-info" type="button" id="btnShowModal_guitn">Gửi tin nhắn</button>
-			 			</form>
+			 			<form method="post" action="cbdkguitn?manhan=<%=mssv%>">
+							<div class="form-group">
+								<label>Người nhận:</label> <input type="text" required
+									class="form-control"  name="magui"
+									placeholder="To">
+							</div>
+							<div class="form-group">
+								<label>Tiêu đề:</label> <input type="text" class="form-control" required
+									 name="tieude" placeholder="Enter Subject">
+							</div>
+							<div class="form-group">
+								<label>Nội dung:</label>
+								<textarea rows="5" cols="50"
+									name="noidung" class="form-control" required placeholder="Enter Content"></textarea>
+							</div>
+							<button class="btn btn-info" type="submit" id="btnShowModal_tn"
+								name="guitn">Gửi tin nhắn</button>
+						</form>
 			 		</div>
 				</div>
 			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="footer-p">
+			Đoàn trường Đại học Sư Phạm Kỹ Thuật TP Hồ Chí Minh
+		</div>
+		<div class="footer-p" style="text-align: center;">
+			Design by: Vịnh
 		</div>
 	</div>
 	<script type="text/javascript">

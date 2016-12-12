@@ -1,3 +1,4 @@
+<%@page import="java.sql.ResultSet"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -47,13 +48,23 @@
 		<nav class="navbar navbar-inverse">
 		    <div class="container-fluid">
 		        <ul class="nav navbar-nav">
-		          	<li><a href="cbdoankhoa_login.jsp">Trang chủ</a></li>
-					<li><a href="cbdoankhoa_thongbao.jsp">Thông báo</a></li>
-					<li><a href="cbdoankhoa_hoatdong.jsp">Hoạt động</a></li>
-					<li class="active"><a href="cbdoankhoa_tracuu.jsp">Tra cứu</a></li>
-					<li><a href="cbdoankhoa_tinnhan.jsp">Tin nhắn</a></li>
-					<li><a href="trangchu.jsp">Đăng xuất</a></li>
-		        </ul>
+				<% String mssv = session.getAttribute("username").toString(); %>
+				<li><a href="cbdoankhoa_login.jsp">Trang chủ</a></li>
+				<li><a href="selecttb">Thông báo</a></li>
+				<li><a href="selectcbdkhd">Hoạt động</a></li>
+				<li class="active"><a href="selectcbdkdv">Tra cứu</a></li>
+				<li><a href="selectcbdktinnhan?mssv=<%=mssv%>">Tin nhắn</a></li>
+				<%
+						if(session.getAttribute("username")!=null && session.getAttribute("username")!="")
+						{
+							String user = session.getAttribute("Ten").toString();
+					%>
+				<li><a>Welcome, <%= user%></a></li>
+				<%
+						} 
+					%>
+				<li><a href="trangchu.jsp">Đăng xuất</a></li>
+			</ul>
 		    </div>
     	</nav>
 		<div class="menu_tab_content">
@@ -62,32 +73,46 @@
 			</ul>
 			<div class="tab-content">
 			 	<div id="dsdoanvien" class="tab-pane fade in active">
-					<sql:query var="items" sql="SELECT MSSV,TenDV,NgaySinh,GioiTinh,Email,Sdt FROM doanvien inner join chucvu on chucvu.MaChucVu=doanvien.MaChucVu"/>
 					  	<table class="table">
 							<tr>
-								<th>MSSV</th>
-								<th>Tên Đoàn Viên</th>
-								<th>Ngày Sinh</th>
-								<th>Giới Tính<th>
-								<th>Email</th>
-								<th>Sdt</th>
-							</tr>
-							<c:forEach var="row" items="">
-								<tr>
-									<td><c:out value=""/></td>
-									<td><c:out value=""/></td>
-									<td><c:out value=""/></td>
-									<td><c:out value=""/></td>
-									<td><c:out value=""/></td>
-									<td><c:out value=""/></td>
-								</tr>
-							</c:forEach>
+							<th>MSSV</th>
+							<th>Tên Đoàn Viên</th>
+							<th>Ngày Sinh</th>
+							<th>Giới Tính</th>
+							<th>Email</th>
+							<th>Sdt</th>
+							<th>Xử lý</th>
+						</tr>
+						<%
+							ResultSet rs = (ResultSet) request.getAttribute("listdoanvien");
+							while (rs.next()) {
+						%>
+						<tr>
+							<td><%=rs.getString("MSSV")%></td>
+							<td><%=rs.getString("Ten")%></td>
+							<td><%=rs.getString("NgaySinh")%></td>
+							<td><%=rs.getString("GioiTinh")%></td>
+							<td><%=rs.getString("Email")%></td>
+							<td><%=rs.getString("Sdt")%></td>
+							<td><a href="cbdksua?mssv=<%= rs.getString("MSSV")%>">Sửa </a> |
+								<a href="cbdkxemctdv?mssv=<%=rs.getString("MSSV")%>">Xem
+									chi tiết</a></td>
+						</tr>
+						<%
+							}
+						%>
 						</table>
-						 <a href="cbdoankhoa_tracuuchitiet.jsp"><button class="btn btn-info" type="button" id="btnShowModal_xemct">Xem chi tiết</button></a>
 					</div>
 			 	</div>
 			</div>
 		</div>
-
+	<div class="footer">
+		<div class="footer-p">
+			Đoàn trường Đại học Sư Phạm Kỹ Thuật TP Hồ Chí Minh
+		</div>
+		<div class="footer-p" style="text-align: center;">
+			Design by: Vịnh
+		</div>
+	</div>
 </body>
 </html>

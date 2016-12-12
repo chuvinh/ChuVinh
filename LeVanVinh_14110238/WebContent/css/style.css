@@ -7,10 +7,22 @@
 .menu_tab_content{
 	margin:10px auto;
 	padding: 10px;
+	height:700px;
 }
 .panel-default {
     border-color: #ddd;
 }
 body{
 	margin: 10px 100px 0 100px;
+}
+.footer{
+	background: #2f2f2f;
+	height: auto;
+	margin-top: auto;
+}
+.footer-p{
+	color: #FFF ;
+	padding-left: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px
 }
